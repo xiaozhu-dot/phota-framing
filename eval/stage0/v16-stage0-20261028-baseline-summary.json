@@ -1,0 +1,1209 @@
+{
+  "name": "v16-stage0-20261028-baseline",
+  "inputs": [
+    "eval/results/stage0-v16-stage0-20261027-r1.json",
+    "eval/results/stage0-v16-stage0-20261028-r2.json"
+  ],
+  "recordsSha256": "f106dff2e2c4c60eb00fa68f3800dfdce06d16a4c5d629745f9dbb1f5fcf9661",
+  "promptHashes": [
+    "94df0374067713e79cec5ce3f6b33e4a3f83744b097542e6847724507eb13d70"
+  ],
+  "plannedLogicalRequests": 54,
+  "logicalRequests": 53,
+  "unsubmittedLogicalRequests": 1,
+  "efficiency": {
+    "finalAvailability": {
+      "num": 52,
+      "den": 53,
+      "value": 0.981
+    },
+    "finalUnavailable": 1,
+    "waitMedianMs": 4310,
+    "waitP90Ms": 93247,
+    "successfulHttpMedianMs": 4271,
+    "successfulHttpP90Ms": 60781,
+    "unknownSuccessfulWaits": 0,
+    "latencyScope": "offline-http",
+    "measuredUserWaitMs": "暂无数据",
+    "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+    "httpCalls": 113,
+    "observedEstimatedCnyTotal": 0.802424,
+    "estimatedCnyTotal": "未知",
+    "estimatedCnyPerValidGuidance": "未知",
+    "costMedianCny": "未知",
+    "costP90Cny": "未知",
+    "costComplete": false,
+    "unknownCostLogicalRequests": 1,
+    "unknownCostHttpCalls": 1,
+    "requestsWithoutUsage": 0,
+    "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+    "tokens": {
+      "observedInput": 299068,
+      "observedOutput": 25536,
+      "observedTotal": 324604,
+      "complete": false
+    },
+    "pricingVersions": [
+      "2026-10-27-peak-upper-estimate"
+    ],
+    "pricingVersionUnknownCalls": 0,
+    "timeouts": 1,
+    "timeoutThresholdsMs": [
+      90000
+    ],
+    "timeoutThresholdUnknownRequests": 0,
+    "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+  },
+  "decisions": {
+    "ready": 12,
+    "adjust": 40,
+    "other": 0,
+    "errors": 1,
+    "missingFinal": 1
+  },
+  "byIntent": {
+    "first": 27,
+    "alternate": 27
+  },
+  "byTier": {
+    "dev": {
+      "plannedLogicalRequests": 18,
+      "logicalRequests": 18,
+      "unsubmittedLogicalRequests": 0,
+      "efficiency": {
+        "finalAvailability": {
+          "num": 18,
+          "den": 18,
+          "value": 1
+        },
+        "finalUnavailable": 0,
+        "waitMedianMs": 4963,
+        "waitP90Ms": 146100,
+        "successfulHttpMedianMs": 4963,
+        "successfulHttpP90Ms": 146100,
+        "unknownSuccessfulWaits": 0,
+        "latencyScope": "offline-http",
+        "measuredUserWaitMs": "暂无数据",
+        "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+        "httpCalls": 40,
+        "observedEstimatedCnyTotal": 0.289828,
+        "estimatedCnyTotal": 0.289828,
+        "estimatedCnyPerValidGuidance": 0.016102,
+        "costMedianCny": 0.014412,
+        "costP90Cny": 0.024478,
+        "costComplete": true,
+        "unknownCostLogicalRequests": 0,
+        "unknownCostHttpCalls": 0,
+        "requestsWithoutUsage": 0,
+        "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+        "tokens": {
+          "observedInput": 108706,
+          "observedOutput": 9052,
+          "observedTotal": 117758,
+          "complete": true
+        },
+        "pricingVersions": [
+          "2026-10-27-peak-upper-estimate"
+        ],
+        "pricingVersionUnknownCalls": 0,
+        "timeouts": 0,
+        "timeoutThresholdsMs": [
+          90000
+        ],
+        "timeoutThresholdUnknownRequests": 0,
+        "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+      },
+      "decisions": {
+        "ready": 5,
+        "adjust": 13,
+        "other": 0,
+        "errors": 0,
+        "missingFinal": 0
+      }
+    },
+    "regression": {
+      "plannedLogicalRequests": 36,
+      "logicalRequests": 35,
+      "unsubmittedLogicalRequests": 1,
+      "efficiency": {
+        "finalAvailability": {
+          "num": 34,
+          "den": 35,
+          "value": 0.971
+        },
+        "finalUnavailable": 1,
+        "waitMedianMs": 4167,
+        "waitP90Ms": 14443,
+        "successfulHttpMedianMs": 4094,
+        "successfulHttpP90Ms": 11977,
+        "unknownSuccessfulWaits": 0,
+        "latencyScope": "offline-http",
+        "measuredUserWaitMs": "暂无数据",
+        "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+        "httpCalls": 73,
+        "observedEstimatedCnyTotal": 0.512596,
+        "estimatedCnyTotal": "未知",
+        "estimatedCnyPerValidGuidance": "未知",
+        "costMedianCny": "未知",
+        "costP90Cny": "未知",
+        "costComplete": false,
+        "unknownCostLogicalRequests": 1,
+        "unknownCostHttpCalls": 1,
+        "requestsWithoutUsage": 0,
+        "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+        "tokens": {
+          "observedInput": 190362,
+          "observedOutput": 16484,
+          "observedTotal": 206846,
+          "complete": false
+        },
+        "pricingVersions": [
+          "2026-10-27-peak-upper-estimate"
+        ],
+        "pricingVersionUnknownCalls": 0,
+        "timeouts": 1,
+        "timeoutThresholdsMs": [
+          90000
+        ],
+        "timeoutThresholdUnknownRequests": 0,
+        "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+      },
+      "decisions": {
+        "ready": 7,
+        "adjust": 27,
+        "other": 0,
+        "errors": 1,
+        "missingFinal": 1
+      }
+    }
+  },
+  "byInputRatio": {
+    "16:9": {
+      "plannedLogicalRequests": 18,
+      "logicalRequests": 18,
+      "unsubmittedLogicalRequests": 0,
+      "efficiency": {
+        "finalAvailability": {
+          "num": 18,
+          "den": 18,
+          "value": 1
+        },
+        "finalUnavailable": 0,
+        "waitMedianMs": 4094,
+        "waitP90Ms": 5345,
+        "successfulHttpMedianMs": 4094,
+        "successfulHttpP90Ms": 5345,
+        "unknownSuccessfulWaits": 0,
+        "latencyScope": "offline-http",
+        "measuredUserWaitMs": "暂无数据",
+        "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+        "httpCalls": 38,
+        "observedEstimatedCnyTotal": 0.249312,
+        "estimatedCnyTotal": 0.249312,
+        "estimatedCnyPerValidGuidance": 0.013851,
+        "costMedianCny": 0.012816,
+        "costP90Cny": 0.020584,
+        "costComplete": true,
+        "unknownCostLogicalRequests": 0,
+        "unknownCostHttpCalls": 0,
+        "requestsWithoutUsage": 0,
+        "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+        "tokens": {
+          "observedInput": 90712,
+          "observedOutput": 8486,
+          "observedTotal": 99198,
+          "complete": true
+        },
+        "pricingVersions": [
+          "2026-10-27-peak-upper-estimate"
+        ],
+        "pricingVersionUnknownCalls": 0,
+        "timeouts": 0,
+        "timeoutThresholdsMs": [
+          90000
+        ],
+        "timeoutThresholdUnknownRequests": 0,
+        "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+      },
+      "decisions": {
+        "ready": 3,
+        "adjust": 15,
+        "other": 0,
+        "errors": 0,
+        "missingFinal": 0
+      }
+    },
+    "4:3": {
+      "plannedLogicalRequests": 18,
+      "logicalRequests": 18,
+      "unsubmittedLogicalRequests": 0,
+      "efficiency": {
+        "finalAvailability": {
+          "num": 18,
+          "den": 18,
+          "value": 1
+        },
+        "finalUnavailable": 0,
+        "waitMedianMs": 3852,
+        "waitP90Ms": 5641,
+        "successfulHttpMedianMs": 3852,
+        "successfulHttpP90Ms": 5641,
+        "unknownSuccessfulWaits": 0,
+        "latencyScope": "offline-http",
+        "measuredUserWaitMs": "暂无数据",
+        "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+        "httpCalls": 37,
+        "observedEstimatedCnyTotal": 0.25257,
+        "estimatedCnyTotal": 0.25257,
+        "estimatedCnyPerValidGuidance": 0.014032,
+        "costMedianCny": 0.013358,
+        "costP90Cny": 0.015146,
+        "costComplete": true,
+        "unknownCostLogicalRequests": 0,
+        "unknownCostHttpCalls": 0,
+        "requestsWithoutUsage": 0,
+        "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+        "tokens": {
+          "observedInput": 92089,
+          "observedOutput": 8549,
+          "observedTotal": 100638,
+          "complete": true
+        },
+        "pricingVersions": [
+          "2026-10-27-peak-upper-estimate"
+        ],
+        "pricingVersionUnknownCalls": 0,
+        "timeouts": 0,
+        "timeoutThresholdsMs": [
+          90000
+        ],
+        "timeoutThresholdUnknownRequests": 0,
+        "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+      },
+      "decisions": {
+        "ready": 4,
+        "adjust": 14,
+        "other": 0,
+        "errors": 0,
+        "missingFinal": 0
+      }
+    },
+    "original": {
+      "plannedLogicalRequests": 18,
+      "logicalRequests": 17,
+      "unsubmittedLogicalRequests": 1,
+      "efficiency": {
+        "finalAvailability": {
+          "num": 16,
+          "den": 17,
+          "value": 0.941
+        },
+        "finalUnavailable": 1,
+        "waitMedianMs": 37805,
+        "waitP90Ms": 202067,
+        "successfulHttpMedianMs": 14443,
+        "successfulHttpP90Ms": 146100,
+        "unknownSuccessfulWaits": 0,
+        "latencyScope": "offline-http",
+        "measuredUserWaitMs": "暂无数据",
+        "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+        "httpCalls": 38,
+        "observedEstimatedCnyTotal": 0.300542,
+        "estimatedCnyTotal": "未知",
+        "estimatedCnyPerValidGuidance": "未知",
+        "costMedianCny": "未知",
+        "costP90Cny": "未知",
+        "costComplete": false,
+        "unknownCostLogicalRequests": 1,
+        "unknownCostHttpCalls": 1,
+        "requestsWithoutUsage": 0,
+        "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+        "tokens": {
+          "observedInput": 116267,
+          "observedOutput": 8501,
+          "observedTotal": 124768,
+          "complete": false
+        },
+        "pricingVersions": [
+          "2026-10-27-peak-upper-estimate"
+        ],
+        "pricingVersionUnknownCalls": 0,
+        "timeouts": 1,
+        "timeoutThresholdsMs": [
+          90000
+        ],
+        "timeoutThresholdUnknownRequests": 0,
+        "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+      },
+      "decisions": {
+        "ready": 5,
+        "adjust": 11,
+        "other": 0,
+        "errors": 1,
+        "missingFinal": 1
+      }
+    }
+  },
+  "byRequest": {
+    "alternate": {
+      "plannedLogicalRequests": 27,
+      "logicalRequests": 26,
+      "unsubmittedLogicalRequests": 1,
+      "efficiency": {
+        "finalAvailability": {
+          "num": 26,
+          "den": 26,
+          "value": 1
+        },
+        "finalUnavailable": 0,
+        "waitMedianMs": 4205,
+        "waitP90Ms": 93247,
+        "successfulHttpMedianMs": 4205,
+        "successfulHttpP90Ms": 93247,
+        "unknownSuccessfulWaits": 0,
+        "latencyScope": "offline-http",
+        "measuredUserWaitMs": "暂无数据",
+        "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+        "httpCalls": 55,
+        "observedEstimatedCnyTotal": 0.398878,
+        "estimatedCnyTotal": 0.398878,
+        "estimatedCnyPerValidGuidance": 0.015341,
+        "costMedianCny": 0.013784,
+        "costP90Cny": 0.025764,
+        "costComplete": true,
+        "unknownCostLogicalRequests": 0,
+        "unknownCostHttpCalls": 0,
+        "requestsWithoutUsage": 0,
+        "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+        "tokens": {
+          "observedInput": 146095,
+          "observedOutput": 13336,
+          "observedTotal": 159431,
+          "complete": true
+        },
+        "pricingVersions": [
+          "2026-10-27-peak-upper-estimate"
+        ],
+        "pricingVersionUnknownCalls": 0,
+        "timeouts": 0,
+        "timeoutThresholdsMs": [
+          90000
+        ],
+        "timeoutThresholdUnknownRequests": 0,
+        "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+      },
+      "decisions": {
+        "ready": 0,
+        "adjust": 26,
+        "other": 0,
+        "errors": 0,
+        "missingFinal": 0
+      }
+    },
+    "first": {
+      "plannedLogicalRequests": 27,
+      "logicalRequests": 27,
+      "unsubmittedLogicalRequests": 0,
+      "efficiency": {
+        "finalAvailability": {
+          "num": 26,
+          "den": 27,
+          "value": 0.963
+        },
+        "finalUnavailable": 1,
+        "waitMedianMs": 4320,
+        "waitP90Ms": 146100,
+        "successfulHttpMedianMs": 4271,
+        "successfulHttpP90Ms": 60781,
+        "unknownSuccessfulWaits": 0,
+        "latencyScope": "offline-http",
+        "measuredUserWaitMs": "暂无数据",
+        "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+        "httpCalls": 58,
+        "observedEstimatedCnyTotal": 0.403546,
+        "estimatedCnyTotal": "未知",
+        "estimatedCnyPerValidGuidance": "未知",
+        "costMedianCny": "未知",
+        "costP90Cny": "未知",
+        "costComplete": false,
+        "unknownCostLogicalRequests": 1,
+        "unknownCostHttpCalls": 1,
+        "requestsWithoutUsage": 0,
+        "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+        "tokens": {
+          "observedInput": 152973,
+          "observedOutput": 12200,
+          "observedTotal": 165173,
+          "complete": false
+        },
+        "pricingVersions": [
+          "2026-10-27-peak-upper-estimate"
+        ],
+        "pricingVersionUnknownCalls": 0,
+        "timeouts": 1,
+        "timeoutThresholdsMs": [
+          90000
+        ],
+        "timeoutThresholdUnknownRequests": 0,
+        "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+      },
+      "decisions": {
+        "ready": 12,
+        "adjust": 14,
+        "other": 0,
+        "errors": 1,
+        "missingFinal": 1
+      }
+    }
+  },
+  "byTierInputRatioRequest": {
+    "dev": {
+      "original": {
+        "first": {
+          "plannedLogicalRequests": 3,
+          "logicalRequests": 3,
+          "unsubmittedLogicalRequests": 0,
+          "efficiency": {
+            "finalAvailability": {
+              "num": 3,
+              "den": 3,
+              "value": 1
+            },
+            "finalUnavailable": 0,
+            "waitMedianMs": 146100,
+            "waitP90Ms": 202067,
+            "successfulHttpMedianMs": 146100,
+            "successfulHttpP90Ms": 202067,
+            "unknownSuccessfulWaits": 0,
+            "latencyScope": "offline-http",
+            "measuredUserWaitMs": "暂无数据",
+            "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+            "httpCalls": 8,
+            "observedEstimatedCnyTotal": 0.065792,
+            "estimatedCnyTotal": 0.065792,
+            "estimatedCnyPerValidGuidance": 0.021931,
+            "costMedianCny": 0.024164,
+            "costP90Cny": 0.024478,
+            "costComplete": true,
+            "unknownCostLogicalRequests": 0,
+            "unknownCostHttpCalls": 0,
+            "requestsWithoutUsage": 0,
+            "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+            "tokens": {
+              "observedInput": 26196,
+              "observedOutput": 1675,
+              "observedTotal": 27871,
+              "complete": true
+            },
+            "pricingVersions": [
+              "2026-10-27-peak-upper-estimate"
+            ],
+            "pricingVersionUnknownCalls": 0,
+            "timeouts": 0,
+            "timeoutThresholdsMs": [
+              90000
+            ],
+            "timeoutThresholdUnknownRequests": 0,
+            "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+          },
+          "decisions": {
+            "ready": 2,
+            "adjust": 1,
+            "other": 0,
+            "errors": 0,
+            "missingFinal": 0
+          }
+        },
+        "alternate": {
+          "plannedLogicalRequests": 3,
+          "logicalRequests": 3,
+          "unsubmittedLogicalRequests": 0,
+          "efficiency": {
+            "finalAvailability": {
+              "num": 3,
+              "den": 3,
+              "value": 1
+            },
+            "finalUnavailable": 0,
+            "waitMedianMs": 111643,
+            "waitP90Ms": 121479,
+            "successfulHttpMedianMs": 111643,
+            "successfulHttpP90Ms": 121479,
+            "unknownSuccessfulWaits": 0,
+            "latencyScope": "offline-http",
+            "measuredUserWaitMs": "暂无数据",
+            "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+            "httpCalls": 6,
+            "observedEstimatedCnyTotal": 0.0469,
+            "estimatedCnyTotal": 0.0469,
+            "estimatedCnyPerValidGuidance": 0.015633,
+            "costMedianCny": 0.015046,
+            "costP90Cny": 0.017442,
+            "costComplete": true,
+            "unknownCostLogicalRequests": 0,
+            "unknownCostHttpCalls": 0,
+            "requestsWithoutUsage": 0,
+            "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+            "tokens": {
+              "observedInput": 17642,
+              "observedOutput": 1452,
+              "observedTotal": 19094,
+              "complete": true
+            },
+            "pricingVersions": [
+              "2026-10-27-peak-upper-estimate"
+            ],
+            "pricingVersionUnknownCalls": 0,
+            "timeouts": 0,
+            "timeoutThresholdsMs": [
+              90000
+            ],
+            "timeoutThresholdUnknownRequests": 0,
+            "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+          },
+          "decisions": {
+            "ready": 0,
+            "adjust": 3,
+            "other": 0,
+            "errors": 0,
+            "missingFinal": 0
+          }
+        }
+      },
+      "4:3": {
+        "first": {
+          "plannedLogicalRequests": 3,
+          "logicalRequests": 3,
+          "unsubmittedLogicalRequests": 0,
+          "efficiency": {
+            "finalAvailability": {
+              "num": 3,
+              "den": 3,
+              "value": 1
+            },
+            "finalUnavailable": 0,
+            "waitMedianMs": 4963,
+            "waitP90Ms": 5641,
+            "successfulHttpMedianMs": 4963,
+            "successfulHttpP90Ms": 5641,
+            "unknownSuccessfulWaits": 0,
+            "latencyScope": "offline-http",
+            "measuredUserWaitMs": "暂无数据",
+            "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+            "httpCalls": 6,
+            "observedEstimatedCnyTotal": 0.039504,
+            "estimatedCnyTotal": 0.039504,
+            "estimatedCnyPerValidGuidance": 0.013168,
+            "costMedianCny": 0.01235,
+            "costP90Cny": 0.015146,
+            "costComplete": true,
+            "unknownCostLogicalRequests": 0,
+            "unknownCostHttpCalls": 0,
+            "requestsWithoutUsage": 0,
+            "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+            "tokens": {
+              "observedInput": 14644,
+              "observedOutput": 1277,
+              "observedTotal": 15921,
+              "complete": true
+            },
+            "pricingVersions": [
+              "2026-10-27-peak-upper-estimate"
+            ],
+            "pricingVersionUnknownCalls": 0,
+            "timeouts": 0,
+            "timeoutThresholdsMs": [
+              90000
+            ],
+            "timeoutThresholdUnknownRequests": 0,
+            "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+          },
+          "decisions": {
+            "ready": 1,
+            "adjust": 2,
+            "other": 0,
+            "errors": 0,
+            "missingFinal": 0
+          }
+        },
+        "alternate": {
+          "plannedLogicalRequests": 3,
+          "logicalRequests": 3,
+          "unsubmittedLogicalRequests": 0,
+          "efficiency": {
+            "finalAvailability": {
+              "num": 3,
+              "den": 3,
+              "value": 1
+            },
+            "finalUnavailable": 0,
+            "waitMedianMs": 3737,
+            "waitP90Ms": 6864,
+            "successfulHttpMedianMs": 3737,
+            "successfulHttpP90Ms": 6864,
+            "unknownSuccessfulWaits": 0,
+            "latencyScope": "offline-http",
+            "measuredUserWaitMs": "暂无数据",
+            "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+            "httpCalls": 7,
+            "observedEstimatedCnyTotal": 0.050562,
+            "estimatedCnyTotal": 0.050562,
+            "estimatedCnyPerValidGuidance": 0.016854,
+            "costMedianCny": 0.012474,
+            "costP90Cny": 0.025764,
+            "costComplete": true,
+            "unknownCostLogicalRequests": 0,
+            "unknownCostHttpCalls": 0,
+            "requestsWithoutUsage": 0,
+            "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+            "tokens": {
+              "observedInput": 18745,
+              "observedOutput": 1634,
+              "observedTotal": 20379,
+              "complete": true
+            },
+            "pricingVersions": [
+              "2026-10-27-peak-upper-estimate"
+            ],
+            "pricingVersionUnknownCalls": 0,
+            "timeouts": 0,
+            "timeoutThresholdsMs": [
+              90000
+            ],
+            "timeoutThresholdUnknownRequests": 0,
+            "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+          },
+          "decisions": {
+            "ready": 0,
+            "adjust": 3,
+            "other": 0,
+            "errors": 0,
+            "missingFinal": 0
+          }
+        }
+      },
+      "16:9": {
+        "first": {
+          "plannedLogicalRequests": 3,
+          "logicalRequests": 3,
+          "unsubmittedLogicalRequests": 0,
+          "efficiency": {
+            "finalAvailability": {
+              "num": 3,
+              "den": 3,
+              "value": 1
+            },
+            "finalUnavailable": 0,
+            "waitMedianMs": 4481,
+            "waitP90Ms": 5367,
+            "successfulHttpMedianMs": 4481,
+            "successfulHttpP90Ms": 5367,
+            "unknownSuccessfulWaits": 0,
+            "latencyScope": "offline-http",
+            "measuredUserWaitMs": "暂无数据",
+            "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+            "httpCalls": 7,
+            "observedEstimatedCnyTotal": 0.04765,
+            "estimatedCnyTotal": 0.04765,
+            "estimatedCnyPerValidGuidance": 0.015883,
+            "costMedianCny": 0.01497,
+            "costP90Cny": 0.020584,
+            "costComplete": true,
+            "unknownCostLogicalRequests": 0,
+            "unknownCostHttpCalls": 0,
+            "requestsWithoutUsage": 0,
+            "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+            "tokens": {
+              "observedInput": 17585,
+              "observedOutput": 1560,
+              "observedTotal": 19145,
+              "complete": true
+            },
+            "pricingVersions": [
+              "2026-10-27-peak-upper-estimate"
+            ],
+            "pricingVersionUnknownCalls": 0,
+            "timeouts": 0,
+            "timeoutThresholdsMs": [
+              90000
+            ],
+            "timeoutThresholdUnknownRequests": 0,
+            "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+          },
+          "decisions": {
+            "ready": 2,
+            "adjust": 1,
+            "other": 0,
+            "errors": 0,
+            "missingFinal": 0
+          }
+        },
+        "alternate": {
+          "plannedLogicalRequests": 3,
+          "logicalRequests": 3,
+          "unsubmittedLogicalRequests": 0,
+          "efficiency": {
+            "finalAvailability": {
+              "num": 3,
+              "den": 3,
+              "value": 1
+            },
+            "finalUnavailable": 0,
+            "waitMedianMs": 4183,
+            "waitP90Ms": 4310,
+            "successfulHttpMedianMs": 4183,
+            "successfulHttpP90Ms": 4310,
+            "unknownSuccessfulWaits": 0,
+            "latencyScope": "offline-http",
+            "measuredUserWaitMs": "暂无数据",
+            "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+            "httpCalls": 6,
+            "observedEstimatedCnyTotal": 0.03942,
+            "estimatedCnyTotal": 0.03942,
+            "estimatedCnyPerValidGuidance": 0.01314,
+            "costMedianCny": 0.012674,
+            "costP90Cny": 0.01415,
+            "costComplete": true,
+            "unknownCostLogicalRequests": 0,
+            "unknownCostHttpCalls": 0,
+            "requestsWithoutUsage": 0,
+            "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+            "tokens": {
+              "observedInput": 13894,
+              "observedOutput": 1454,
+              "observedTotal": 15348,
+              "complete": true
+            },
+            "pricingVersions": [
+              "2026-10-27-peak-upper-estimate"
+            ],
+            "pricingVersionUnknownCalls": 0,
+            "timeouts": 0,
+            "timeoutThresholdsMs": [
+              90000
+            ],
+            "timeoutThresholdUnknownRequests": 0,
+            "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+          },
+          "decisions": {
+            "ready": 0,
+            "adjust": 3,
+            "other": 0,
+            "errors": 0,
+            "missingFinal": 0
+          }
+        }
+      }
+    },
+    "regression": {
+      "original": {
+        "first": {
+          "plannedLogicalRequests": 6,
+          "logicalRequests": 6,
+          "unsubmittedLogicalRequests": 0,
+          "efficiency": {
+            "finalAvailability": {
+              "num": 5,
+              "den": 6,
+              "value": 0.833
+            },
+            "finalUnavailable": 1,
+            "waitMedianMs": 7112,
+            "waitP90Ms": "∞",
+            "successfulHttpMedianMs": 7112,
+            "successfulHttpP90Ms": 60781,
+            "unknownSuccessfulWaits": 0,
+            "latencyScope": "offline-http",
+            "measuredUserWaitMs": "暂无数据",
+            "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+            "httpCalls": 12,
+            "observedEstimatedCnyTotal": 0.08627,
+            "estimatedCnyTotal": "未知",
+            "estimatedCnyPerValidGuidance": "未知",
+            "costMedianCny": "未知",
+            "costP90Cny": "未知",
+            "costComplete": false,
+            "unknownCostLogicalRequests": 1,
+            "unknownCostHttpCalls": 1,
+            "requestsWithoutUsage": 0,
+            "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+            "tokens": {
+              "observedInput": 33867,
+              "observedOutput": 2317,
+              "observedTotal": 36184,
+              "complete": false
+            },
+            "pricingVersions": [
+              "2026-10-27-peak-upper-estimate"
+            ],
+            "pricingVersionUnknownCalls": 0,
+            "timeouts": 1,
+            "timeoutThresholdsMs": [
+              90000
+            ],
+            "timeoutThresholdUnknownRequests": 0,
+            "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+          },
+          "decisions": {
+            "ready": 3,
+            "adjust": 2,
+            "other": 0,
+            "errors": 1,
+            "missingFinal": 1
+          }
+        },
+        "alternate": {
+          "plannedLogicalRequests": 6,
+          "logicalRequests": 5,
+          "unsubmittedLogicalRequests": 1,
+          "efficiency": {
+            "finalAvailability": {
+              "num": 5,
+              "den": 5,
+              "value": 1
+            },
+            "finalUnavailable": 0,
+            "waitMedianMs": 7405,
+            "waitP90Ms": 93247,
+            "successfulHttpMedianMs": 7405,
+            "successfulHttpP90Ms": 93247,
+            "unknownSuccessfulWaits": 0,
+            "latencyScope": "offline-http",
+            "measuredUserWaitMs": "暂无数据",
+            "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+            "httpCalls": 12,
+            "observedEstimatedCnyTotal": 0.10158,
+            "estimatedCnyTotal": 0.10158,
+            "estimatedCnyPerValidGuidance": 0.020316,
+            "costMedianCny": 0.016366,
+            "costP90Cny": 0.027866,
+            "costComplete": true,
+            "unknownCostLogicalRequests": 0,
+            "unknownCostHttpCalls": 0,
+            "requestsWithoutUsage": 0,
+            "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+            "tokens": {
+              "observedInput": 38562,
+              "observedOutput": 3057,
+              "observedTotal": 41619,
+              "complete": true
+            },
+            "pricingVersions": [
+              "2026-10-27-peak-upper-estimate"
+            ],
+            "pricingVersionUnknownCalls": 0,
+            "timeouts": 0,
+            "timeoutThresholdsMs": [
+              90000
+            ],
+            "timeoutThresholdUnknownRequests": 0,
+            "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+          },
+          "decisions": {
+            "ready": 0,
+            "adjust": 5,
+            "other": 0,
+            "errors": 0,
+            "missingFinal": 0
+          }
+        }
+      },
+      "4:3": {
+        "first": {
+          "plannedLogicalRequests": 6,
+          "logicalRequests": 6,
+          "unsubmittedLogicalRequests": 0,
+          "efficiency": {
+            "finalAvailability": {
+              "num": 6,
+              "den": 6,
+              "value": 1
+            },
+            "finalUnavailable": 0,
+            "waitMedianMs": 3852,
+            "waitP90Ms": 4624,
+            "successfulHttpMedianMs": 3852,
+            "successfulHttpP90Ms": 4624,
+            "unknownSuccessfulWaits": 0,
+            "latencyScope": "offline-http",
+            "measuredUserWaitMs": "暂无数据",
+            "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+            "httpCalls": 12,
+            "observedEstimatedCnyTotal": 0.079572,
+            "estimatedCnyTotal": 0.079572,
+            "estimatedCnyPerValidGuidance": 0.013262,
+            "costMedianCny": 0.013156,
+            "costP90Cny": 0.013988,
+            "costComplete": true,
+            "unknownCostLogicalRequests": 0,
+            "unknownCostHttpCalls": 0,
+            "requestsWithoutUsage": 0,
+            "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+            "tokens": {
+              "observedInput": 29274,
+              "observedOutput": 2628,
+              "observedTotal": 31902,
+              "complete": true
+            },
+            "pricingVersions": [
+              "2026-10-27-peak-upper-estimate"
+            ],
+            "pricingVersionUnknownCalls": 0,
+            "timeouts": 0,
+            "timeoutThresholdsMs": [
+              90000
+            ],
+            "timeoutThresholdUnknownRequests": 0,
+            "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+          },
+          "decisions": {
+            "ready": 3,
+            "adjust": 3,
+            "other": 0,
+            "errors": 0,
+            "missingFinal": 0
+          }
+        },
+        "alternate": {
+          "plannedLogicalRequests": 6,
+          "logicalRequests": 6,
+          "unsubmittedLogicalRequests": 0,
+          "efficiency": {
+            "finalAvailability": {
+              "num": 6,
+              "den": 6,
+              "value": 1
+            },
+            "finalUnavailable": 0,
+            "waitMedianMs": 3766,
+            "waitP90Ms": 4316,
+            "successfulHttpMedianMs": 3766,
+            "successfulHttpP90Ms": 4316,
+            "unknownSuccessfulWaits": 0,
+            "latencyScope": "offline-http",
+            "measuredUserWaitMs": "暂无数据",
+            "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+            "httpCalls": 12,
+            "observedEstimatedCnyTotal": 0.082932,
+            "estimatedCnyTotal": 0.082932,
+            "estimatedCnyPerValidGuidance": 0.013822,
+            "costMedianCny": 0.013498,
+            "costP90Cny": 0.01444,
+            "costComplete": true,
+            "unknownCostLogicalRequests": 0,
+            "unknownCostHttpCalls": 0,
+            "requestsWithoutUsage": 0,
+            "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+            "tokens": {
+              "observedInput": 29426,
+              "observedOutput": 3010,
+              "observedTotal": 32436,
+              "complete": true
+            },
+            "pricingVersions": [
+              "2026-10-27-peak-upper-estimate"
+            ],
+            "pricingVersionUnknownCalls": 0,
+            "timeouts": 0,
+            "timeoutThresholdsMs": [
+              90000
+            ],
+            "timeoutThresholdUnknownRequests": 0,
+            "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+          },
+          "decisions": {
+            "ready": 0,
+            "adjust": 6,
+            "other": 0,
+            "errors": 0,
+            "missingFinal": 0
+          }
+        }
+      },
+      "16:9": {
+        "first": {
+          "plannedLogicalRequests": 6,
+          "logicalRequests": 6,
+          "unsubmittedLogicalRequests": 0,
+          "efficiency": {
+            "finalAvailability": {
+              "num": 6,
+              "den": 6,
+              "value": 1
+            },
+            "finalUnavailable": 0,
+            "waitMedianMs": 4054,
+            "waitP90Ms": 5345,
+            "successfulHttpMedianMs": 4054,
+            "successfulHttpP90Ms": 5345,
+            "unknownSuccessfulWaits": 0,
+            "latencyScope": "offline-http",
+            "measuredUserWaitMs": "暂无数据",
+            "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+            "httpCalls": 13,
+            "observedEstimatedCnyTotal": 0.084758,
+            "estimatedCnyTotal": 0.084758,
+            "estimatedCnyPerValidGuidance": 0.014126,
+            "costMedianCny": 0.012666,
+            "costP90Cny": 0.021472,
+            "costComplete": true,
+            "unknownCostLogicalRequests": 0,
+            "unknownCostHttpCalls": 0,
+            "requestsWithoutUsage": 0,
+            "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+            "tokens": {
+              "observedInput": 31407,
+              "observedOutput": 2743,
+              "observedTotal": 34150,
+              "complete": true
+            },
+            "pricingVersions": [
+              "2026-10-27-peak-upper-estimate"
+            ],
+            "pricingVersionUnknownCalls": 0,
+            "timeouts": 0,
+            "timeoutThresholdsMs": [
+              90000
+            ],
+            "timeoutThresholdUnknownRequests": 0,
+            "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+          },
+          "decisions": {
+            "ready": 1,
+            "adjust": 5,
+            "other": 0,
+            "errors": 0,
+            "missingFinal": 0
+          }
+        },
+        "alternate": {
+          "plannedLogicalRequests": 6,
+          "logicalRequests": 6,
+          "unsubmittedLogicalRequests": 0,
+          "efficiency": {
+            "finalAvailability": {
+              "num": 6,
+              "den": 6,
+              "value": 1
+            },
+            "finalUnavailable": 0,
+            "waitMedianMs": 3869,
+            "waitP90Ms": 4664,
+            "successfulHttpMedianMs": 3869,
+            "successfulHttpP90Ms": 4664,
+            "unknownSuccessfulWaits": 0,
+            "latencyScope": "offline-http",
+            "measuredUserWaitMs": "暂无数据",
+            "latencyNote": "milliseconds 是离线完整逻辑 HTTP 流程耗时；未测提交到界面文字可见，不能证明用户等待门槛。失败排序为∞，实际耗时保留。",
+            "httpCalls": 12,
+            "observedEstimatedCnyTotal": 0.077484,
+            "estimatedCnyTotal": 0.077484,
+            "estimatedCnyPerValidGuidance": 0.012914,
+            "costMedianCny": 0.01289,
+            "costP90Cny": 0.014022,
+            "costComplete": true,
+            "unknownCostLogicalRequests": 0,
+            "unknownCostHttpCalls": 0,
+            "requestsWithoutUsage": 0,
+            "costDistributionUnit": "submitted logical request, including failures and all internal calls",
+            "tokens": {
+              "observedInput": 27826,
+              "observedOutput": 2729,
+              "observedTotal": 30555,
+              "complete": true
+            },
+            "pricingVersions": [
+              "2026-10-27-peak-upper-estimate"
+            ],
+            "pricingVersionUnknownCalls": 0,
+            "timeouts": 0,
+            "timeoutThresholdsMs": [
+              90000
+            ],
+            "timeoutThresholdUnknownRequests": 0,
+            "note": "运行器估算，不是账单；观察到的费用小计不代表未知请求免费。"
+          },
+          "decisions": {
+            "ready": 0,
+            "adjust": 6,
+            "other": 0,
+            "errors": 0,
+            "missingFinal": 0
+          }
+        }
+      }
+    }
+  },
+  "consistency": {
+    "checker": "consistency-v1",
+    "finalWithConflict": {
+      "num": 1,
+      "den": 52,
+      "value": 0.019
+    },
+    "finalWithReviewOnly": {
+      "num": 0,
+      "den": 52,
+      "value": 0
+    },
+    "rawOnlyAlarms": 0,
+    "note": "报警只是疑点，须人工对图确认后才计硬错误；无效输出不进入可评输出分母。",
+    "alarms": [
+      {
+        "case": "novice-lighthouse",
+        "intent": "alternate",
+        "file": "eval/results/stage0-v16-stage0-20261028-r2.json",
+        "code": "H2?",
+        "where": "final.action.evidence",
+        "kind": "left",
+        "side": null,
+        "phrase": "偏左",
+        "verdict": "conflict",
+        "why": "说偏左，但脸中心 x=0.49"
+      }
+    ]
+  },
+  "needsHuman": {
+    "status": "待人工标注",
+    "metrics": [
+      "硬错误率（H1–H6 确认）",
+      "不必要调整率",
+      "漏调率",
+      "无证据调整率",
+      "不适用建议率",
+      "建议适配四维分",
+      "创意分",
+      "现场关联率"
+    ]
+  },
+  "noData": {
+    "status": "暂无数据",
+    "metrics": [
+      "单步有效率",
+      "执行覆盖率",
+      "成功拍法步数",
+      "严格出片成功率",
+      "实拍成片四维分",
+      "真实成片盲评"
+    ]
+  },
+  "failures": [
+    {
+      "case": "novice-night",
+      "intent": "first",
+      "file": "eval/results/stage0-v16-stage0-20261027-r1.json",
+      "error": "The operation was aborted due to timeout",
+      "milliseconds": 90094,
+      "inputRatio": "original"
+    }
+  ],
+  "unsubmitted": [
+    {
+      "case": "novice-night",
+      "intent": "alternate",
+      "file": "eval/results/stage0-v16-stage0-20261028-r2.json",
+      "error": "dependency_unavailable",
+      "inputRatio": "original"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "purpose": "Novice portrait inference evaluation, separate from professional demonstration images. No fine-tuning, distillation or teacher-answer training.",
+  "checked": "2026-10-23",
+  "sources": [
+    {
+      "author": "u/KnownWoodpecker",
+      "group": "novice-knownwoodpecker",
+      "split": "dev",
+      "url": "https://www.reddit.com/r/photocritique/comments/12ax50c/beginner_here_tips_for_improvement/",
+      "noviceEvidence": "Author labels the post beginner and describes a simple portrait of a friend, aiming for a dark atmosphere in nature.",
+      "status": "original post, author context and selected original image inspected; community comments are opinions, not answer labels",
+      "license": "not established"
+    },
+    {
+      "author": "u/MEL0MANN",
+      "group": "novice-mel0mann",
+      "split": "dev",
+      "url": "https://www.reddit.com/r/Nikon/comments/1w7oah4/my_first_photoshoot/",
+      "noviceEvidence": "Author explicitly says beginner, first photoshoot after a course, Nikon D3500 and manual 50mm lens.",
+      "status": "original post, author context and selected original image inspected; community comments are opinions, not answer labels",
+      "license": "not established"
+    },
+    {
+      "author": "u/qlorious",
+      "group": "novice-qlorious",
+      "split": "dev",
+      "url": "https://www.reddit.com/r/photocritique/comments/1qto43v/did_my_first_ever_studio_shoot_would_like_feedback/",
+      "noviceEvidence": "Author explicitly describes first studio shoot and difficulty directing poses.",
+      "status": "original post, author context and selected original image inspected; community comments are opinions, not answer labels",
+      "license": "not established"
+    },
+    {
+      "author": "u/ace_333",
+      "group": "novice-ace333",
+      "split": "holdout",
+      "url": "https://www.reddit.com/r/photocritique/comments/1tiv5w6/first_time_taking_portrait_photo/",
+      "noviceEvidence": "Author states first portrait attempt, photographing wife, approximately one month using a Canon R50 kit lens.",
+      "status": "original post, author context and selected original image inspected; community comments are opinions, not answer labels",
+      "license": "not established"
+    },
+    {
+      "author": "u/Previous-Bed-1459",
+      "group": "novice-previousbed1459",
+      "split": "holdout",
+      "url": "https://www.reddit.com/r/fujifilm/comments/1dwvlwb/any_feedback_on_these_first_camera_first_portrait/",
+      "noviceEvidence": "Author explicitly states first camera owned just over a month and first portrait session.",
+      "status": "original post, author context and selected original image inspected; community comments are opinions, not answer labels",
+      "license": "not established"
+    },
+    {
+      "author": "u/kolombod",
+      "group": "novice-kolombod",
+      "split": "confirmation",
+      "url": "https://www.reddit.com/r/photocritique/comments/1rc00ms/first_time_doing_portraits/",
+      "noviceEvidence": "Author explicitly states little portrait knowledge/experience and a first portrait attempt; explains intentional Helios swirl and outdoor artificial lights.",
+      "status": "Original author context and original image visually inspected before inference. No critique comments supplied to model.",
+      "license": "not established"
+    },
+    {
+      "author": "u/NordicNoirNails",
+      "group": "novice-nordicnoirnails",
+      "split": "confirmation",
+      "url": "https://www.reddit.com/r/photocritique/comments/1gryqu0/what_emotion_does_this_portrait_evoke/",
+      "noviceEvidence": "Author states first portrait attempt on iPhone 15 Pro and confirms intentional high-contrast editing for a duality mood.",
+      "status": "Original author statements and original image inspected before inference; no community critique supplied to model.",
+      "license": "not established"
+    },
+    {
+      "author": "u/Milestone55",
+      "group": "novice-milestone55",
+      "split": "confirmation",
+      "url": "https://www.reddit.com/r/photocritique/comments/1t31xhl/beginner_at_portraits/",
+      "noviceEvidence": "Author explicitly states first portrait session, previously nature/automotive, difficulty communicating and positioning people.",
+      "status": "Original author context and original photo inspected before inference; critique comments excluded from model input.",
+      "license": "not established"
+    },
+    {
+      "author": "u/laurenspaul",
+      "group": "novice-laurenspaul",
+      "split": "confirmation",
+      "url": "https://www.reddit.com/r/photocritique/comments/1t3ftxi/new_to_photography_please_give_me_some_pointers/",
+      "noviceEvidence": "Author identifies as new to photography and struggling with shooting; explicitly likes dark images and dramatic overcast.",
+      "status": "Original author context and original photo inspected before inference; critique comments excluded from model input.",
+      "license": "not established"
+    }
+  ]
+}

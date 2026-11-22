@@ -1,0 +1,19 @@
+[
+  {"id": "h1", "who": "crab", "scene": "hook", "text": "又拍歪了？电线杆还从头上长出来？"},
+  {"id": "h2", "who": "pig", "scene": "hook", "text": "别慌，有我们在。我们是 Phota 的拍照伙伴！"},
+  {"id": "k1", "who": "crab", "scene": "coach", "text": "举起手机，我先在手机上认出你在拍什么。"},
+  {"id": "k2", "who": "pig", "scene": "coach", "text": "小鸟太靠右？手机往右移一点。"},
+  {"id": "k3", "who": "crab", "scene": "coach", "text": "好，就是现在，按快门！"},
+  {"id": "r1", "who": "pig", "scene": "portrait", "text": "拍人像更讲究：杆子挡头，就往左走两步。"},
+  {"id": "r2", "who": "crab", "scene": "portrait", "text": "还会提醒模特：下巴微抬，看向窗外。"},
+  {"id": "a1", "who": "pig", "scene": "agent", "text": "拍完交给我深度分析：量曝光、放大细看、拿尺子比水平。"},
+  {"id": "a2", "who": "crab", "scene": "agent", "text": "还会先试着裁一裁，满意了才建议你。"},
+  {"id": "s1", "who": "pig", "scene": "skills", "text": "摄影师的经验都在技能库里，按场景自动挑最合适的。"},
+  {"id": "m1", "who": "crab", "scene": "album", "text": "相册像手机一样好用，连拍自动挑出最清楚的那张。"},
+  {"id": "b1", "who": "pig", "scene": "book", "text": "长按选几张，告诉我在哪拍的，我就编成摄影集。"},
+  {"id": "b2", "who": "crab", "scene": "book", "text": "连发朋友圈的配文都帮你写好啦。"},
+  {"id": "g1", "who": "pig", "scene": "growth", "text": "每次分析都记下来，看看你进步了多少。"},
+  {"id": "o1", "who": "crab", "scene": "outro", "text": "拍之前教你，"},
+  {"id": "o2", "who": "pig", "scene": "outro", "text": "拍之后懂你。"},
+  {"id": "o3", "who": "crab", "scene": "outro", "text": "Phota，一起拍得更好看！"}
+]

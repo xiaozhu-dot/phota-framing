@@ -1,0 +1,6 @@
+node_modules/
+# 构建生成的文件
+www/app.js
+www/pet.js
+src/pet-source.js
+www/mediapipe/

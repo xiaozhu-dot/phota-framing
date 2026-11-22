@@ -1,0 +1,11 @@
+.env
+.venv/
+__pycache__/
+result.jpg
+.claude/
+dist/
+eval/photos/
+eval/results/*.json
+eval/results/*.jsonl
+eval/results/portrait-browser*/
+eval/results/portrait-blind-review-preview.png

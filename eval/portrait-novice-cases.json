@@ -1,0 +1,101 @@
+[
+  {
+    "id": "novice-blue",
+    "group": "novice-knownwoodpecker",
+    "person": "knownwoodpecker-friend-session",
+    "split": "dev",
+    "scene": "park",
+    "source": "https://www.reddit.com/r/photocritique/comments/12ax50c/beginner_here_tips_for_improvement/",
+    "image": "https://i.redd.it/u8cp161gvrra1.jpg",
+    "file": "photos/portrait/novice-blue.jpg",
+    "userIntent": "想保留自然环境里的暗调氛围，但希望人像更好。"
+  },
+  {
+    "id": "novice-first-shoot",
+    "group": "novice-mel0mann",
+    "person": "mel0mann-first-session",
+    "split": "dev",
+    "scene": "outdoor",
+    "source": "https://www.reddit.com/r/Nikon/comments/1w7oah4/my_first_photoshoot/",
+    "image": "https://i.redd.it/4rjamsul4mnh1.jpg",
+    "file": "photos/portrait/novice-first-shoot.jpg",
+    "userIntent": "第一次拍模特，想知道现场还能怎样拍好。"
+  },
+  {
+    "id": "novice-studio",
+    "group": "novice-qlorious",
+    "person": "qlorious-studio-session",
+    "split": "dev",
+    "scene": "studio",
+    "source": "https://www.reddit.com/r/photocritique/comments/1qto43v/did_my_first_ever_studio_shoot_would_like_feedback/",
+    "image": "https://i.redd.it/prir9p4p51hg1.jpeg",
+    "file": "photos/portrait/novice-studio.jpg",
+    "userIntent": "为花店和珠宝业务拍摄肖像，需保留花束及首饰的展示；第一次棚拍，不熟悉指导姿势。"
+  },
+  {
+    "id": "novice-wife",
+    "group": "novice-ace333",
+    "person": "ace333-wife-session",
+    "split": "holdout",
+    "scene": "outdoor",
+    "source": "https://www.reddit.com/r/photocritique/comments/1tiv5w6/first_time_taking_portrait_photo/",
+    "image": "https://i.redd.it/ztd2nfu2ac2h1.jpeg",
+    "file": "photos/portrait/novice-wife.jpg",
+    "userIntent": "第一次给妻子拍人像，使用套机镜头，想改善现场取景和姿势。"
+  },
+  {
+    "id": "novice-fuji",
+    "group": "novice-previousbed1459",
+    "person": "previousbed-first-session",
+    "split": "holdout",
+    "scene": "outdoor",
+    "source": "https://www.reddit.com/r/fujifilm/comments/1dwvlwb/any_feedback_on_these_first_camera_first_portrait/",
+    "image": "https://i.redd.it/jx2nawgeuxad1.jpg",
+    "file": "photos/portrait/novice-fuji.jpg",
+    "userIntent": "刚买相机一个多月，第一次拍人像，想知道怎样指导模特。"
+  },
+  {
+    "id": "novice-night",
+    "group": "novice-kolombod",
+    "person": "kolombod-night-session",
+    "split": "confirmation",
+    "scene": "night",
+    "source": "https://www.reddit.com/r/photocritique/comments/1rc00ms/first_time_doing_portraits/",
+    "image": "https://i.redd.it/fzj0vvbti4lg1.jpeg",
+    "file": "photos/portrait/novice-night.jpg",
+    "userIntent": "初次尝试人像，想保留户外人工灯光与旋转散景的效果，同时让人物更好看。"
+  },
+  {
+    "id": "novice-duality",
+    "group": "novice-nordicnoirnails",
+    "person": "nordicnoirnails-first-portrait",
+    "split": "confirmation",
+    "scene": "window",
+    "source": "https://www.reddit.com/r/photocritique/comments/1gryqu0/what_emotion_does_this_portrait_evoke/",
+    "image": "https://i.redd.it/hev6bns6231e1.jpeg",
+    "file": "photos/portrait/novice-duality.jpg",
+    "userIntent": "首次尝试人像，用手机拍摄，明暗对比是有意的风格，希望保留明暗两面带来的情绪。"
+  },
+  {
+    "id": "novice-blossom",
+    "group": "novice-milestone55",
+    "person": "milestone55-first-portrait",
+    "split": "confirmation",
+    "scene": "garden",
+    "source": "https://www.reddit.com/r/photocritique/comments/1t31xhl/beginner_at_portraits/",
+    "image": "https://i.redd.it/9z6v89dzi0zg1.jpeg",
+    "file": "photos/portrait/novice-blossom.jpg",
+    "userIntent": "首次尝试指导人像，以前主要拍自然和汽车，不擅长与人交流，想改善现场构图和指导。"
+  },
+  {
+    "id": "novice-lighthouse",
+    "group": "novice-laurenspaul",
+    "person": "laurenspaul-overcast-portrait",
+    "split": "confirmation",
+    "scene": "coast",
+    "source": "https://www.reddit.com/r/photocritique/comments/1t3ftxi/new_to_photography_please_give_me_some_pointers/",
+    "image": "https://i.redd.it/vk2qgp2b34zg1.jpeg",
+    "file": "photos/portrait/novice-lighthouse.jpg",
+    "userIntent": "刚学摄影，喜欢这处光线和戏剧感阴云，偏爱暗调，主要想知道现场拍摄最先改善什么。"
+  }
+]

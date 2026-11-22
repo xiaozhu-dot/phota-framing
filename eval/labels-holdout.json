@@ -1,0 +1,147 @@
+[
+  {
+    "file": "photos/architecture_2.jpg",
+    "base": "architecture_2",
+    "defect": "none"
+  },
+  {
+    "file": "photos/food_2.jpg",
+    "base": "food_2",
+    "defect": "none"
+  },
+  {
+    "file": "photos/interior_2.jpg",
+    "base": "interior_2",
+    "defect": "none"
+  },
+  {
+    "file": "photos/street_1.jpg",
+    "base": "street_1",
+    "defect": "none"
+  },
+  {
+    "file": "photos/holdout/tilt_interior_2.jpg",
+    "base": "interior_2",
+    "defect": "tilt",
+    "tilt": 3,
+    "keywords": [
+      "歪",
+      "倾斜",
+      "不平",
+      "水平"
+    ]
+  },
+  {
+    "file": "photos/holdout/tilt_street_1.jpg",
+    "base": "street_1",
+    "defect": "tilt",
+    "tilt": -4,
+    "keywords": [
+      "歪",
+      "倾斜",
+      "不平",
+      "水平"
+    ]
+  },
+  {
+    "file": "photos/holdout/tilt_architecture_2.jpg",
+    "base": "architecture_2",
+    "defect": "tilt",
+    "tilt": 3.5,
+    "keywords": [
+      "歪",
+      "倾斜",
+      "不平",
+      "水平"
+    ]
+  },
+  {
+    "file": "photos/holdout/dark_food_2.jpg",
+    "base": "food_2",
+    "defect": "dark",
+    "keywords": [
+      "暗",
+      "欠曝",
+      "曝光不足"
+    ]
+  },
+  {
+    "file": "photos/holdout/dark_street_1.jpg",
+    "base": "street_1",
+    "defect": "dark",
+    "keywords": [
+      "暗",
+      "欠曝",
+      "曝光不足"
+    ]
+  },
+  {
+    "file": "photos/holdout/bright_interior_2.jpg",
+    "base": "interior_2",
+    "defect": "bright",
+    "keywords": [
+      "过曝",
+      "太亮",
+      "偏亮",
+      "曝光过度",
+      "死白"
+    ]
+  },
+  {
+    "file": "photos/holdout/bright_architecture_2.jpg",
+    "base": "architecture_2",
+    "defect": "bright",
+    "keywords": [
+      "过曝",
+      "太亮",
+      "偏亮",
+      "曝光过度",
+      "死白"
+    ]
+  },
+  {
+    "file": "photos/holdout/cut_food_2.jpg",
+    "base": "food_2",
+    "defect": "cut",
+    "what": "盘子和鸡肉被切掉一大块",
+    "keywords": [
+      "切",
+      "裁",
+      "边缘",
+      "截断",
+      "不完整",
+      "挤",
+      "太满"
+    ]
+  },
+  {
+    "file": "photos/holdout/cut_interior_2.jpg",
+    "base": "interior_2",
+    "defect": "cut",
+    "what": "长廊的中心被挤到最左边",
+    "keywords": [
+      "切",
+      "裁",
+      "边缘",
+      "截断",
+      "不完整",
+      "挤",
+      "太满"
+    ]
+  },
+  {
+    "file": "photos/holdout/cut_architecture_2.jpg",
+    "base": "architecture_2",
+    "defect": "cut",
+    "what": "教堂顶部的尖塔被切掉",
+    "keywords": [
+      "切",
+      "裁",
+      "边缘",
+      "截断",
+      "不完整",
+      "挤",
+      "太满"
+    ]
+  }
+]

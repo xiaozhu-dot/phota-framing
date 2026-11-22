@@ -1,0 +1,10 @@
+<!doctype html><meta charset="utf-8"><style>body{margin:0;background:#1b1916;color:#eee;font:11px monospace;display:flex;flex-direction:column;align-items:center}#d{width:200px;height:215px;margin-top:4px}html{overflow:hidden}</style>
+<div id="d"></div><div id="l"></div><script src="pet.js"></script><script>
+const q=new URLSearchParams(location.search), st=q.get('s');
+pet.mount(document.getElementById('d'), q.get('p')); document.getElementById('l').textContent=q.get('p')+' '+st;
+const go={sleep:()=>pet.sleep(true,'front'),photo:()=>pet.hold('photo'),peek:()=>{pet.sleep(true);setTimeout(()=>pet.peek(true),1500)},
+cover:()=>pet.coverEyes(true),point:()=>{setInterval(()=>pet.point({x:0,y:200},5000),500)},pointR:()=>{setInterval(()=>pet.point({x:400,y:200},5000),500)},cheer:()=>setInterval(()=>pet.cheer(3000),800),
+puff:()=>pet.holdBreath(true),scratch:()=>setInterval(()=>pet.scratch(3000),500),magnifier:()=>pet.hold('magnifier'),notes:()=>pet.hold('notes'),
+book:()=>{pet.hold('book');pet.propFill(.8)},bag:()=>{pet.hold('bag');pet.propFill(.7)},envelope:()=>pet.hold('envelope'),peace:()=>pet.hold('peace'),thumb:()=>pet.hold('thumb'),idle:()=>{}};
+setTimeout(go[st],300);
+</script>

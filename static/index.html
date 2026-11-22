@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>取景 Viewfinder</title>
+  <style>
+    /* ================= 设计变量：纸张 / 墨色 / 朱红，深色模式是"暗房" ================= */
+    :root {
+      --paper: #f1ede4; --paper-2: #f7f4ee; --print: #fcfbf8;
+      --ink: #1d1b18; --muted: #8a8479; --hair: rgba(29, 27, 24, .16);
+      --accent: #c8432b; --good: #3d7a55; --bad: #b5512a;
+      --inv-bg: #1d1b18; --inv-ink: #f1ede4; --inv-muted: #a39c90; --inv-hair: rgba(241, 237, 228, .14);
+      --shadow: 0 1px 1px rgba(0,0,0,.05), 0 14px 32px -14px rgba(50, 35, 20, .35);
+      --mono: ui-monospace, "SF Mono", "JetBrains Mono", Consolas, "Courier New", monospace;
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Songti SC", serif;
+      --sans: -apple-system, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #141311; --paper-2: #1a1916; --print: #262420;
+        --ink: #ebe5da; --muted: #8e877c; --hair: rgba(235, 229, 218, .14);
+        --accent: #e3583c; --good: #7cc293; --bad: #e88a5e;
+        --inv-bg: #ebe5da; --inv-ink: #161513; --inv-muted: #6d665c; --inv-hair: rgba(22, 21, 19, .14);
+        --shadow: 0 14px 32px -14px rgba(0, 0, 0, .7);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html, body { margin: 0; }
+    body { background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.6; min-height: 100vh; }
+    .mono { font-family: var(--mono); }
+
+    /* 纸张颗粒 */
+    .grain {
+      position: fixed; inset: 0; pointer-events: none; z-index: 60; opacity: .07;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 28px 80px; }
+
+    /* ================= 刊头 ================= */
+    .mast { display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+            padding: 26px 0 14px; border-bottom: 1px solid var(--hair); }
+    .brand { display: flex; align-items: baseline; gap: 12px; }
+    .brand .zh { font-size: 30px; font-weight: 700; letter-spacing: .14em; }
+    .brand em { font-family: var(--serif); font-size: 21px; color: var(--muted); }
+    .mast .meta { font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    .mast .meta b { color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+    /* ================= 版面：中间是伙伴，四周是方框 ================= */
+    .board {
+      display: grid; gap: 30px 34px; margin-top: 30px; align-items: start;
+      grid-template-columns: 1fr minmax(320px, 380px) 1fr;
+      grid-template-areas: "meter stage review" "crop stage tips";
+    }
+    #meterBox { grid-area: meter; } #reviewBox { grid-area: review; }
+    #tipsBox { grid-area: tips; }   #cropBox { grid-area: crop; }
+
+    /* 取景器四角标记，代替边框 */
+    .frame, .print.empty {
+      --c: var(--ink); --l: 14px; --t: 1.5px;
+      background:
+        linear-gradient(var(--c) 0 0) left top / var(--l) var(--t), linear-gradient(var(--c) 0 0) left top / var(--t) var(--l),
+        linear-gradient(var(--c) 0 0) right top / var(--l) var(--t), linear-gradient(var(--c) 0 0) right top / var(--t) var(--l),
+        linear-gradient(var(--c) 0 0) left bottom / var(--l) var(--t), linear-gradient(var(--c) 0 0) left bottom / var(--t) var(--l),
+        linear-gradient(var(--c) 0 0) right bottom / var(--l) var(--t), linear-gradient(var(--c) 0 0) right bottom / var(--t) var(--l);
+      background-repeat: no-repeat;
+      background-color: var(--paper-2);
+    }
+    .frame { position: relative; padding: 18px 20px 22px; min-height: 160px; transition: box-shadow .3s; }
+    .frame.hit { animation: hit .5s ease; }
+    @keyframes hit { 40% { box-shadow: 0 0 0 1px var(--accent) inset; } }
+
+    .fh { display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px;
+          font: 11px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+    .fh .idx { color: var(--accent); }
+    .fh .zh { font: 600 15px/1 var(--sans); letter-spacing: .06em; color: var(--ink); text-transform: none; }
+    .fh .st { margin-left: auto; font-variant-numeric: tabular-nums; }
+    .fh .st.wait::after { content: ""; display: inline-block; width: 1.2em; text-align: left; animation: dots 1.2s steps(4) infinite; }
+    @keyframes dots { 0% { content: ""; } 25% { content: "."; } 50% { content: ".."; } 75% { content: "..."; } }
+    .fh .st.fail { color: var(--bad); }
+    .empty { margin: 0; color: var(--muted); font-family: var(--serif); font-style: italic; font-size: 15px; }
+
+    /* 气泡落地前占好位置但不可见，落地时弹出来 */
+    .slot { visibility: hidden; }
+    .slot.landed { visibility: visible; animation: land .5s cubic-bezier(.2, 1.5, .4, 1) both; }
+    @keyframes land { from { opacity: 0; transform: scale(.9); } }
+
+    /* 01 测量 */
+    .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; }
+    .tile { border-top: 1px solid var(--hair); padding-top: 8px; }
+    .tile .k { display: block; font: 10.5px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .tile .v { display: block; font: 30px/1.15 var(--serif); font-variant-numeric: tabular-nums; }
+    .tile .n { font-size: 12.5px; color: var(--good); }
+    .tile.warn .n { color: var(--bad); }
+
+    /* 02 点评 */
+    .scorerow { display: flex; align-items: center; gap: 18px; margin-bottom: 8px; }
+    .score { font: 68px/0.9 var(--serif); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+    .score small { font-size: 16px; color: var(--muted); letter-spacing: .04em; margin-left: 2px; }
+    .title { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: .03em; line-height: 1.35; }
+    .summary { margin: 4px 0 14px; color: var(--muted); font-size: 14.5px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { padding: 4px 12px 4px 10px; border-radius: 999px; font-size: 13.5px; border: 1px solid; }
+    .chip::before { font-family: var(--mono); margin-right: 6px; }
+    .chip.good { color: var(--good); border-color: color-mix(in srgb, var(--good) 35%, transparent); }
+    .chip.good::before { content: "+"; }
+    .chip.bad { color: var(--bad); border-color: color-mix(in srgb, var(--bad) 35%, transparent); }
+    .chip.bad::before { content: "−"; }
+
+    /* 03 下次这样拍（反白，最突出）*/
+    .frame.tips { --c: var(--accent); background-color: var(--inv-bg); color: var(--inv-ink); }
+    .frame.tips .fh { color: var(--inv-muted); }
+    .frame.tips .fh .zh { color: var(--inv-ink); }
+    .frame.tips .empty { color: var(--inv-muted); }
+    .tip { display: grid; grid-template-columns: 46px 1fr; padding: 14px 0; border-top: 1px solid var(--inv-hair); }
+    .tip:first-child { border-top: 0; padding-top: 2px; }
+    .tip .num { font: italic 28px/1 var(--serif); color: var(--accent); }
+    .tip .act { font-size: 18px; font-weight: 600; letter-spacing: .03em; }
+    .tip .why { font-size: 13.5px; color: var(--inv-muted); opacity: 0; transform: translateY(-4px); transition: opacity .5s .3s, transform .5s .3s; }
+    .tip.landed .why { opacity: 1; transform: none; }
+
+    /* 04 裁剪 */
+    .tabs { display: flex; gap: 4px; margin-bottom: 10px; }
+    .tabs button { font: 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; padding: 7px 10px;
+                   background: none; border: 1px solid transparent; color: var(--muted); cursor: pointer; }
+    .tabs button.on { border-color: var(--ink); color: var(--ink); }
+    .cropfig { margin: 0; }
+    .cropfig img { width: 100%; display: block; background: #000; }
+    .cropfig figcaption { margin-top: 10px; font-size: 13.5px; color: var(--muted); }
+    .err { margin: 0; color: var(--bad); font-size: 14px; }
+
+    /* ================= 中间舞台：照片 + 快门 + 伙伴 ================= */
+    .stage { grid-area: stage; grid-row: 1 / span 2; position: sticky; top: 22px;
+             display: flex; flex-direction: column; align-items: center; gap: 18px; }
+    .print { position: relative; display: block; width: 100%; cursor: pointer; transition: transform .4s ease; }
+    .print.empty { aspect-ratio: 4 / 3; display: grid; place-items: center; text-align: center; }
+    .print.empty .big { font: italic 22px/1.3 var(--serif); }
+    .print.empty .small { font: 11px/2 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+    .print.filled { background: var(--print); padding: 12px 12px 36px; box-shadow: var(--shadow); transform: rotate(-1.4deg); }
+    .print.filled:hover { transform: rotate(0); }
+    .print img { display: block; width: 100%; max-height: 300px; object-fit: contain; background: #0b0b0b; }
+    .print .cap { position: absolute; left: 14px; right: 14px; bottom: 11px; font: 10.5px/1 var(--mono);
+                  letter-spacing: .12em; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    body.dragging .print { outline: 1.5px dashed var(--accent); outline-offset: 6px; }
+
+    .shutter-row { display: flex; align-items: center; gap: 14px; }
+    .shutter { width: 58px; height: 58px; padding: 5px; border-radius: 50%; border: 2px solid var(--ink);
+               background: none; cursor: pointer; flex-shrink: 0; }
+    .shutter span { display: block; width: 100%; height: 100%; border-radius: 50%; background: var(--accent); transition: transform .15s; }
+    .shutter:active span { transform: scale(.8); }
+    .shutter:disabled { opacity: .3; cursor: default; }
+    body.running .shutter span { animation: breathe 1.1s ease-in-out infinite; }
+    @keyframes breathe { 50% { transform: scale(.82); } }
+    .shutter-label { font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+
+    .pet-dock { height: 232px; display: flex; justify-content: center; }
+
+    /* 切换宠物 */
+    .species { display: flex; border: 1px solid var(--hair); margin-top: -6px; }
+    .species button { font: 11px/1 var(--mono); letter-spacing: .14em; padding: 8px 14px; border: 0;
+                      background: none; color: var(--muted); cursor: pointer; display: flex; align-items: center; gap: 7px; }
+    .species button + button { border-left: 1px solid var(--hair); }
+    .species button.on { background: var(--ink); color: var(--paper); }
+    .species i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+    /* ================= 飞行气泡 ================= */
+    .bubble {
+      position: fixed; left: 0; top: 0; z-index: 50; pointer-events: none; will-change: transform;
+      max-width: 230px; padding: 7px 14px; border-radius: 18px; font-size: 13.5px; line-height: 1.4;
+      color: var(--ink); background: radial-gradient(120% 140% at 30% 15%, var(--print) 40%, var(--paper-2));
+      border: 1px solid var(--hair);
+      box-shadow: 0 8px 20px -10px rgba(0,0,0,.35), inset 0 -2px 4px rgba(0,0,0,.04), inset 0 2px 3px rgba(255,255,255,.35);
+    }
+    .bubble.good { color: var(--good); }
+    .bubble.bad { color: var(--bad); }
+    .bubble.accent { background: var(--accent); color: #fff; border-color: transparent; }
+    .ripple { position: fixed; left: 0; top: 0; width: 12px; height: 12px; margin: -6px 0 0 -6px; z-index: 49;
+              border: 1.5px solid var(--accent); border-radius: 50%; pointer-events: none; animation: ripple .6s ease-out forwards; }
+    @keyframes ripple { to { transform: scale(5); opacity: 0; } }
+
+    footer { margin-top: 50px; padding-top: 14px; border-top: 1px solid var(--hair);
+             font: 11px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--muted);
+             display: flex; justify-content: space-between; }
+
+    /* ================= 窄屏：竖排，伙伴分析时停靠在屏幕底部 ================= */
+    @media (max-width: 899px) {
+      .wrap { padding: 0 16px 170px; }
+      .board { grid-template-columns: 1fr; grid-template-areas: "stage" "meter" "review" "tips" "crop"; gap: 22px; }
+      .stage { position: static; grid-row: auto; }
+      .brand .zh { font-size: 24px; }
+      .mast .meta span { display: none; }
+      body.docked .pet-dock .pet { position: fixed; left: 50%; bottom: 0; z-index: 40;
+                                   transform: translateX(-50%) scale(.6); transform-origin: 50% 100%; }
+      body.docked .pet-dock .pet .cap { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .slot.landed, .frame.hit, .ripple { animation: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="wrap">
+  <header class="mast">
+    <div class="brand"><span class="zh">取景</span><em>Viewfinder</em></div>
+    <div class="meta mono"><span>AI 构图教练 · </span><b id="clock">00:00.0</b></div>
+  </header>
+
+  <main class="board">
+    <section class="frame" id="meterBox">
+      <div class="fh"><span class="idx">01</span><span class="zh">测量</span><span>Meter</span><span class="st" id="st-metrics">待命</span></div>
+      <div id="meter"></div>
+    </section>
+
+    <section class="frame" id="reviewBox">
+      <div class="fh"><span class="idx">02</span><span class="zh">点评</span><span>Critique</span><span class="st" id="st-review">待命</span></div>
+      <div id="review"></div>
+    </section>
+
+    <section class="stage">
+      <label class="print empty" id="print">
+        <input type="file" id="file" accept="image/*" hidden>
+        <div class="print-empty">
+          <div class="big">放进一张照片</div>
+          <div class="small">点击选择 · 或拖到页面上</div>
+        </div>
+        <img id="preview" alt="" hidden>
+        <span class="cap" id="printCap" hidden></span>
+      </label>
+      <div class="shutter-row">
+        <button class="shutter" id="shutter" disabled aria-label="开始分析"><span></span></button>
+        <div class="shutter-label mono" id="shutterLabel">先放一张照片</div>
+      </div>
+      <div class="pet-dock" id="petDock"></div>
+      <div class="species" id="species" role="group" aria-label="切换宠物">
+        <button data-s="crab"><i style="background:#f08468"></i>Crabo</button>
+        <button data-s="pig"><i style="background:#f5b4c0"></i>Piggo</button>
+      </div>
+    </section>
+
+    <section class="frame tips" id="tipsBox">
+      <div class="fh"><span class="idx">03</span><span class="zh">下次这样拍</span><span>Next shot</span><span class="st" id="st-suggestions">待命</span></div>
+      <div id="tips"></div>
+    </section>
+
+    <section class="frame" id="cropBox">
+      <div class="fh"><span class="idx">04</span><span class="zh">裁剪</span><span>Crop</span><span class="st" id="st-crop">待命</span></div>
+      <div id="crop"></div>
+    </section>
+  </main>
+
+  <footer><span><span id="petName">Crabo</span> · 你的构图伙伴</span><span>摸摸伙伴 · 戳戳伙伴</span></footer>
+</div>
+
+<script src="/static/pet.js?v=4"></script>
+<script>
+  const $ = (id) => document.getElementById(id);
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const narrow = () => matchMedia("(max-width: 899px)").matches;
+
+  // AI 返回的文字一律用 textContent 放进去，防止里面有 HTML 代码被执行
+  function el(tag, cls, text) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+
+  // 旧版角色迁移到 Crabo。
+  let saved = "crab";
+  try { saved = localStorage.getItem("pet") === "pig" ? "pig" : "crab"; } catch (e) {}
+  pet.mount($("petDock"), saved);
+  pet.caption("把照片交给我");
+
+  function syncSpecies() {
+    document.querySelectorAll("#species button").forEach((b) => b.classList.toggle("on", b.dataset.s === pet.species));
+    $("petName").textContent = pet.name;
+  }
+  document.querySelectorAll("#species button").forEach((b) => {
+    b.onclick = () => {
+      if (b.dataset.s === pet.species) return;
+      pet.setSpecies(b.dataset.s);
+      try { localStorage.setItem("pet", b.dataset.s); } catch (e) {}
+      syncSpecies();
+      pet.hop(0.9);
+      pet.ambient(`我是${pet.name}！`);
+    };
+  });
+  syncSpecies();
+
+  const fileInput = $("file"), print = $("print"), preview = $("preview"), shutter = $("shutter");
+  const BOXES = { metrics: "meter", review: "review", suggestions: "tips", crop: "crop" };
+  let file = null;
+  let gen = 0;                 // 每次分析的编号，用来作废上一次还没飞完的气泡
+
+  // ================= 选照片：点击 / 拖拽 =================
+  fileInput.onchange = () => pick(fileInput.files[0]);
+  let dragDepth = 0;
+  window.addEventListener("dragenter", (e) => {
+    e.preventDefault();
+    if (dragDepth++ === 0) { document.body.classList.add("dragging"); pet.mode("excited"); pet.caption("放进来！"); }
+  });
+  window.addEventListener("dragleave", () => {
+    if (--dragDepth === 0) { document.body.classList.remove("dragging"); pet.mode("idle"); pet.caption("把照片交给我"); }
+  });
+  window.addEventListener("dragover", (e) => e.preventDefault());
+  window.addEventListener("drop", (e) => {
+    e.preventDefault();
+    dragDepth = 0;
+    document.body.classList.remove("dragging");
+    pet.mode("idle");
+    pick(e.dataTransfer.files[0]);
+  });
+
+  function pick(f) {
+    if (!f || !f.type.startsWith("image/")) return;
+    gen++;
+    file = f;
+    preview.src = URL.createObjectURL(f);
+    preview.hidden = false;
+    print.classList.remove("empty");
+    print.classList.add("filled");
+    print.querySelector(".print-empty").hidden = true;
+    preview.onload = () => {
+      const cap = $("printCap");
+      cap.textContent = `${f.name.toUpperCase()} · ${preview.naturalWidth}×${preview.naturalHeight}`;
+      cap.hidden = false;
+    };
+    shutter.disabled = false;
+    $("shutterLabel").textContent = "按下快门 · 开始分析";
+    $("clock").textContent = "00:00.0";
+    document.body.classList.remove("docked");
+    resetBoxes("待命");
+    pet.reset();
+    pet.hop(0.8);
+    pet.lookAt(print, 1400);
+    pet.caption("让我看看这张");
+  }
+
+  function resetBoxes(status) {
+    for (const [stage, id] of Object.entries(BOXES)) {
+      $(id).replaceChildren(el("p", "empty", "等伙伴开口"));
+      setStatus(stage, status, status === "接收中" ? "wait" : "");
+    }
+  }
+  function setStatus(stage, text, cls = "") {
+    const s = $("st-" + stage);
+    s.textContent = text;
+    s.className = "st " + cls;
+  }
+  function clearBox(id) {
+    const box = $(id);
+    box.replaceChildren();
+    return box;
+  }
+
+  // ================= 气泡：从伙伴嘴里飞到方框里的指定位置 =================
+  let chain = Promise.resolve();
+  const easeInOut = (p) => (p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2);
+  const backOut = (p) => 1 + 2.7 * Math.pow(p - 1, 3) + 1.7 * Math.pow(p - 1, 2);
+
+  // 排队：一个一个吐出来（每个间隔约 0.3 秒），但飞行过程可以同时进行
+  function say(text, slot, variant = "") {
+    const my = gen;
+    chain = chain.then(async () => {
+      if (my !== gen) return;
+      await ensureVisible(slot);
+      if (my !== gen) return;
+      launch(text, slot, variant, my);
+      await sleep(reduceMotion ? 0 : 300);
+    });
+  }
+
+  async function ensureVisible(slot) {
+    const r = slot.getBoundingClientRect();
+    if (r.top > 40 && r.bottom < innerHeight - (narrow() ? 150 : 20)) return;
+    slot.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+    await sleep(reduceMotion ? 0 : 480);
+  }
+
+  function launch(text, slot, variant, my) {
+    if (reduceMotion) return land(slot);
+    const start = pet.emit(slot);
+    const b = el("div", "bubble " + variant, text);
+    document.body.append(b);
+    const bw = b.offsetWidth, bh = b.offsetHeight;
+    const place = (x, y, s, rot) => (b.style.transform = `translate(${x - bw / 2}px, ${y - bh / 2}px) scale(${s}) rotate(${rot}deg)`);
+    place(start.x, start.y, 0.3, 0);
+
+    const r0 = slot.getBoundingClientRect();
+    const dist = Math.hypot(r0.left + r0.width / 2 - start.x, r0.top + r0.height / 2 - start.y);
+    const dur = Math.min(1300, 650 + dist * 0.55);
+    const lift = 60 + dist * 0.2;
+    const t0 = performance.now();
+
+    function step(now) {
+      if (my !== gen) return b.remove();
+      const p = Math.min(1, (now - t0) / dur), e = easeInOut(p);
+      const r = slot.getBoundingClientRect();                   // 每帧重新取目标位置，排版变化也能跟上
+      const ex = r.left + r.width / 2, ey = r.top + r.height / 2;
+      const cx = (start.x + ex) / 2, cy = Math.min(start.y, ey) - lift;
+      const x = (1 - e) ** 2 * start.x + 2 * (1 - e) * e * cx + e * e * ex;
+      const y = (1 - e) ** 2 * start.y + 2 * (1 - e) * e * cy + e * e * ey;
+      const s = p < 0.25 ? 0.3 + 0.7 * backOut(p / 0.25) : 1 - Math.max(0, p - 0.85) * 0.6;
+      const rot = Math.sin(p * Math.PI * 3) * (1 - p) * 6;
+      place(x, y, s, rot);
+      if (p < 1) requestAnimationFrame(step);
+      else { b.remove(); land(slot, ex, ey); }
+    }
+    requestAnimationFrame(step);
+  }
+
+  function land(slot, x, y) {
+    slot.classList.add("landed");
+    const frame = slot.closest(".frame");
+    frame.classList.remove("hit"); void frame.offsetWidth; frame.classList.add("hit");
+    if (x != null && !reduceMotion) {
+      const r = el("i", "ripple");                                // 落地时的一圈涟漪
+      r.style.left = x + "px";
+      r.style.top = y + "px";
+      r.onanimationend = () => r.remove();
+      document.body.append(r);
+    }
+  }
+
+  // ================= 按下快门：流式接收结果 =================
+  let clockStart = 0, clockRaf = 0, captionTimer = 0;
+  function tick() {
+    const ms = performance.now() - clockStart;
+    const m = String(Math.floor(ms / 60000)).padStart(2, "0");
+    const s = (ms / 1000 % 60).toFixed(1).padStart(4, "0");
+    $("clock").textContent = `${m}:${s}`;
+    clockRaf = requestAnimationFrame(tick);
+  }
+  const THINKING = ["正在读光线", "量一量水平线", "琢磨构图", "想想下次怎么拍"];
+
+  shutter.onclick = async () => {
+    const my = ++gen;
+    chain = Promise.resolve();
+    resetBoxes("接收中");
+    document.body.classList.add("running");
+    if (narrow()) document.body.classList.add("docked");
+    shutter.disabled = true;
+    $("shutterLabel").textContent = `${pet.name}在看…`;
+    pet.reset();
+    pet.mode("thinking");
+    let ci = 0;
+    pet.caption(THINKING[0]);
+    captionTimer = setInterval(() => pet.caption(THINKING[++ci % THINKING.length]), 2200);
+    clockStart = performance.now();
+    tick();
+
+    try {
+      const form = new FormData();
+      form.append("photo", file);
+      const res = await fetch("/analyze", { method: "POST", body: form });
+      if (!res.ok) throw new Error(`服务器返回 ${res.status}`);
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        let i;
+        while ((i = buffer.indexOf("\n")) >= 0) {
+          const line = buffer.slice(0, i);
+          buffer = buffer.slice(i + 1);
+          if (line.trim() && my === gen) handle(JSON.parse(line));
+        }
+      }
+    } catch (e) {
+      if (my === gen) {
+        for (const stage of Object.keys(BOXES)) {
+          if ($("st-" + stage).classList.contains("wait")) failBox(stage, "连不上服务器");
+        }
+        pet.shake();
+        pet.mood({ smile: -0.5, ear: -1 });
+      }
+    }
+
+    if (my !== gen) return;
+    cancelAnimationFrame(clockRaf);
+    clearInterval(captionTimer);
+    document.body.classList.remove("running");
+    shutter.disabled = false;
+    $("shutterLabel").textContent = "再分析一次";
+    pet.mode("idle");
+    for (const stage of Object.keys(BOXES)) {
+      if ($("st-" + stage).classList.contains("wait")) setStatus(stage, "未完成", "fail");
+    }
+  };
+
+  function handle(ev) {
+    const t = ev.t != null ? ev.t + "s" : "";
+    if (ev.type === "metrics") { showMetrics(ev.data); setStatus("metrics", t); }
+    else if (ev.type === "review") { showReview(ev.data); setStatus("review", t); }
+    else if (ev.type === "suggestions") { showTips(ev.data); setStatus("suggestions", t); }
+    else if (ev.type === "crop") { showCrop(ev.data); setStatus("crop", t); }
+    else if (ev.type === "error") {
+      if (ev.stage === "all") Object.keys(BOXES).forEach((s) => failBox(s, ev.message));
+      else {
+        failBox(ev.stage, ev.message);
+        if (ev.stage === "suggestions") failBox("crop", "没有建议，也就没有裁剪方案");
+      }
+      pet.shake();
+    } else if (ev.type === "done") {
+      clearInterval(captionTimer);
+      chain.then(() => pet.caption("说完啦 · 戳戳我再听一遍"));
+    }
+  }
+
+  function failBox(stage, message) {
+    const box = clearBox(BOXES[stage]);
+    const p = el("p", "err slot", "这一部分没能完成");
+    p.title = message;
+    box.append(p);
+    setStatus(stage, "未完成", "fail");
+    say("这里出了点问题", p, "bad");
+  }
+
+  // ================= 四个方框的内容 =================
+  function showMetrics(m) {
+    const e = m.exposure, h = m.horizon;
+    const b = e["平均亮度_百分比"], over = e["过曝像素_百分比"], under = e["欠曝像素_百分比"];
+    const tilt = h["找到水平线"] ? h["倾斜角度"] : null;
+    const items = [
+      { k: "亮度 Brightness", v: b + "%", n: b < 30 ? "偏暗" : b > 65 ? "偏亮" : "适中", warn: b < 30 || b > 65, say: `亮度 ${b}%` },
+      { k: "过曝 Highlights", v: over + "%", n: over > 2 ? "高光溢出" : "正常", warn: over > 2, say: `过曝 ${over}%` },
+      { k: "欠曝 Shadows", v: under + "%", n: under > 5 ? "暗部死黑" : "正常", warn: under > 5, say: `欠曝 ${under}%` },
+      tilt == null
+        ? { k: "水平 Level", v: "—", n: "没有明显水平线", warn: false, say: "没找到水平线" }
+        : { k: "水平 Level", v: tilt + "°", n: Math.abs(tilt) <= 1 ? "端正" : "倾斜", warn: Math.abs(tilt) > 1, say: `水平 ${tilt}°` },
+    ];
+    const grid = el("div", "tiles");
+    clearBox("meter").append(grid);
+    for (const it of items) {
+      const tile = el("div", "tile slot" + (it.warn ? " warn" : ""));
+      tile.append(el("span", "k", it.k), el("span", "v", it.v), el("span", "n", it.n));
+      grid.append(tile);
+      say(it.say, tile, it.warn ? "bad" : "");
+    }
+    // 伙伴的身体跟着测量结果变化：暗 → 瞳孔放大，亮 → 眯眼，歪 → 跟着歪
+    if (b < 30) pet.mood({ eyeSize: 1.28 });
+    else if (b > 65) pet.mood({ eye: 0.45 });
+    if (tilt != null && Math.abs(tilt) > 1) pet.mood({ tilt: Math.max(-16, Math.min(16, tilt * 3)) });
+  }
+
+  function showReview(r) {
+    const score = Math.max(0, Math.min(10, parseInt(r.score) || 0));
+    const box = clearBox("review");
+    const row = el("div", "scorerow");
+    const scoreEl = el("div", "score slot", String(score));
+    scoreEl.append(el("small", null, "/10"));
+    const titleEl = el("h3", "title slot", r.title || "构图点评");
+    row.append(scoreEl, titleEl);
+    const sumEl = el("p", "summary slot", r.summary || "");
+    const chips = el("div", "chips");
+    box.append(row, sumEl, chips);
+
+    say(`${score} 分`, scoreEl, "accent");
+    say(r.title || "构图点评", titleEl);
+    if (r.summary) say(r.summary, sumEl);
+    for (const t of r.highlights || []) { const c = el("span", "chip good slot", t); chips.append(c); say(t, c, "good"); }
+    for (const t of r.problems || []) { const c = el("span", "chip bad slot", t); chips.append(c); say(t, c, "bad"); }
+
+    // 分数决定心情：嘴角、耳朵、脸红都跟着连续变化
+    pet.mood({ smile: Math.max(-1, Math.min(1, (score - 6) / 3)), ear: score >= 8 ? 1 : score < 6 ? -1 : 0.2,
+               blush: score >= 8 ? 0.8 : 0.3 });
+    chain.then(() => { if (score >= 8) pet.celebrate(); });
+  }
+
+  function showTips(s) {
+    const list = clearBox("tips");
+    const tips = s.suggestions || [];
+    pet.tips = tips.map((t) => t.action).filter(Boolean);
+    tips.forEach((t, i) => {
+      const item = el("div", "tip slot");
+      const body = el("div");
+      body.append(el("div", "act", t.action || ""), el("div", "why", t.why || ""));
+      item.append(el("span", "num", String(i + 1).padStart(2, "0")), body);
+      list.append(item);
+      say(t.action || "建议", item, "accent");
+    });
+  }
+
+  function showCrop(c) {
+    const box = clearBox("crop");
+    if (!c) {
+      const p = el("p", "empty slot", "构图很完整，不需要再裁剪。");
+      box.append(p);
+      say("不用裁剪", p);
+      return;
+    }
+    const fig = el("figure", "cropfig slot");
+    const img = el("img");
+    img.src = c.annotated;
+    const tabs = el("div", "tabs");
+    const views = { "标注": c.annotated, "裁剪后": c.cropped, "原图": preview.src };
+    Object.entries(views).forEach(([name, src], i) => {
+      const btn = el("button", i === 0 ? "on" : "", name);
+      btn.onclick = () => {
+        tabs.querySelectorAll("button").forEach((x) => x.classList.remove("on"));
+        btn.classList.add("on");
+        img.src = src;
+      };
+      tabs.append(btn);
+    });
+    fig.append(tabs, img, el("figcaption", null, `保留 ${c.kept}% · ${c.reason}`));
+    box.append(fig);
+    say(`裁剪 · 保留 ${c.kept}%`, fig);
+  }
+
+  resetBoxes("待命");
+</script>
+</body>
+</html>

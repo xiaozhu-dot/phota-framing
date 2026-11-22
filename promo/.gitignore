@@ -1,0 +1,15 @@
+node_modules
+dist
+.DS_Store
+.env
+
+# Ignore the output video from Git but not videos you import into src/.
+out
+
+# remotion bundle 的输出
+build
+# 配乐由 scripts/make-music.mjs 生成，不进 git（体积大，随时能重新生成）
+public/music.wav
+public/sfx
+# 示例照片从 eval/photos 复制并缩小（和 eval/photos 一样不进 git），见 README
+public/photos

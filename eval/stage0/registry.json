@@ -1,0 +1,857 @@
+{
+  "stage": 0,
+  "createdAt": "2026-10-27",
+  "policy": "禁止微调、蒸馏和权重训练。改规则须升版重新登记，不回改旧分。",
+  "hashes": {
+    "rules": {
+      "file": "docs/evaluations/phota-scoring-v2.md",
+      "sha256": "c3ca7592f81459f6f7546777ac74d2899ffd35ec628ea0c2fd6edbbf0a9b83cd"
+    },
+    "roadmap": {
+      "file": "docs/superpowers/plans/2026-10-24-phota-training-roadmap.md",
+      "sha256": "3f090596f4111d170dce5bc8b3baf2259838ba05ebcea9625325cc8ca9b67e66"
+    },
+    "checker": {
+      "file": "eval/stage0/consistency.mjs",
+      "sha256": "159cc1ed0590297c7c204989ec3cd22418996eb9477a3077d9fd5e98c34652e4"
+    }
+  },
+  "tiers": {
+    "dev": [
+      "novice-blue",
+      "novice-first-shoot",
+      "novice-studio"
+    ],
+    "regression": [
+      "novice-wife",
+      "novice-fuji",
+      "novice-night",
+      "novice-duality",
+      "novice-blossom",
+      "novice-lighthouse"
+    ],
+    "sealed": [],
+    "reference": [
+      "neil-close",
+      "neil-room",
+      "pyl-field",
+      "pyl-bench",
+      "firstlight-cafe",
+      "firstlight-seated",
+      "firstlight-table",
+      "neil-street",
+      "neil-doorway",
+      "trotti-park-01",
+      "trotti-park-03",
+      "trotti-park-09",
+      "mpp-cafe-01",
+      "mpp-cafe-03",
+      "mpp-street-20",
+      "osborne-window-a",
+      "osborne-window-b",
+      "osborne-window-a-single",
+      "osborne-window-b-single",
+      "tucker-woods-final",
+      "tucker-woods-source",
+      "pye-parking-11",
+      "pye-parking-20",
+      "pye-parking-24",
+      "pye-jhesus-poses",
+      "pye-jhesus-angles",
+      "pye-jhesus-straight",
+      "pye-jhesus-lean",
+      "pye-jhesus-smile"
+    ]
+  },
+  "sealedNote": "封存集为空：现有 9 位新手作者都已曝光，不能恢复封存身份。须补充未曝光的公开新作者，由数据管理员预先登记，开发时不看。",
+  "cases": [
+    {
+      "id": "novice-blue",
+      "corpus": "novice",
+      "tier": "dev",
+      "legacySplit": "dev",
+      "author": "u/KnownWoodpecker",
+      "authorGroup": "novice-knownwoodpecker",
+      "group": "novice-knownwoodpecker",
+      "person": "knownwoodpecker-friend-session",
+      "source": "https://www.reddit.com/r/photocritique/comments/12ax50c/beginner_here_tips_for_improvement/",
+      "file": "photos/portrait/novice-blue.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "baseline-intent",
+        "v10",
+        "v11",
+        "v12-feedback",
+        "v13-feedback",
+        "v14-feedback",
+        "v17-decision"
+      ]
+    },
+    {
+      "id": "novice-first-shoot",
+      "corpus": "novice",
+      "tier": "dev",
+      "legacySplit": "dev",
+      "author": "u/MEL0MANN",
+      "authorGroup": "novice-mel0mann",
+      "group": "novice-mel0mann",
+      "person": "mel0mann-first-session",
+      "source": "https://www.reddit.com/r/Nikon/comments/1w7oah4/my_first_photoshoot/",
+      "file": "photos/portrait/novice-first-shoot.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "baseline-intent",
+        "v10",
+        "v11",
+        "v12-feedback",
+        "v13-feedback",
+        "v14-feedback",
+        "v17-decision"
+      ]
+    },
+    {
+      "id": "novice-studio",
+      "corpus": "novice",
+      "tier": "dev",
+      "legacySplit": "dev",
+      "author": "u/qlorious",
+      "authorGroup": "novice-qlorious",
+      "group": "novice-qlorious",
+      "person": "qlorious-studio-session",
+      "source": "https://www.reddit.com/r/photocritique/comments/1qto43v/did_my_first_ever_studio_shoot_would_like_feedback/",
+      "file": "photos/portrait/novice-studio.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "baseline-intent",
+        "v10",
+        "v11",
+        "v12-feedback",
+        "v13-feedback",
+        "v14-feedback",
+        "v17-decision",
+        "v18-prop"
+      ]
+    },
+    {
+      "id": "novice-wife",
+      "corpus": "novice",
+      "tier": "regression",
+      "legacySplit": "holdout",
+      "author": "u/ace_333",
+      "authorGroup": "novice-ace333",
+      "group": "novice-ace333",
+      "person": "ace333-wife-session",
+      "source": "https://www.reddit.com/r/photocritique/comments/1tiv5w6/first_time_taking_portrait_photo/",
+      "file": "photos/portrait/novice-wife.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline-intent",
+        "v11",
+        "v12-feedback",
+        "v13-feedback",
+        "v14-feedback",
+        "v16-feedback"
+      ],
+      "note": "曾作留出/确认集，结果影响过候选取舍：登记开发曝光"
+    },
+    {
+      "id": "novice-fuji",
+      "corpus": "novice",
+      "tier": "regression",
+      "legacySplit": "holdout",
+      "author": "u/Previous-Bed-1459",
+      "authorGroup": "novice-previousbed1459",
+      "group": "novice-previousbed1459",
+      "person": "previousbed-first-session",
+      "source": "https://www.reddit.com/r/fujifilm/comments/1dwvlwb/any_feedback_on_these_first_camera_first_portrait/",
+      "file": "photos/portrait/novice-fuji.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline-intent",
+        "v11",
+        "v12-feedback",
+        "v13-feedback",
+        "v14-feedback",
+        "v16-feedback"
+      ],
+      "note": "曾作留出/确认集，结果影响过候选取舍：登记开发曝光"
+    },
+    {
+      "id": "novice-night",
+      "corpus": "novice",
+      "tier": "regression",
+      "legacySplit": "confirmation",
+      "author": "u/kolombod",
+      "authorGroup": "novice-kolombod",
+      "group": "novice-kolombod",
+      "person": "kolombod-night-session",
+      "source": "https://www.reddit.com/r/photocritique/comments/1rc00ms/first_time_doing_portraits/",
+      "file": "photos/portrait/novice-night.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "v15-confirmation",
+        "v16-fresh",
+        "v17-decision",
+        "v17-fresh"
+      ],
+      "note": "曾作留出/确认集，结果影响过候选取舍：登记开发曝光"
+    },
+    {
+      "id": "novice-duality",
+      "corpus": "novice",
+      "tier": "regression",
+      "legacySplit": "confirmation",
+      "author": "u/NordicNoirNails",
+      "authorGroup": "novice-nordicnoirnails",
+      "group": "novice-nordicnoirnails",
+      "person": "nordicnoirnails-first-portrait",
+      "source": "https://www.reddit.com/r/photocritique/comments/1gryqu0/what_emotion_does_this_portrait_evoke/",
+      "file": "photos/portrait/novice-duality.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "v16-camera-16x9",
+        "v16-camera-4x3",
+        "v16-fresh",
+        "v17-fresh",
+        "v19-feedback",
+        "v21-camera-16x9",
+        "v21-camera-4x3",
+        "v21-parallax"
+      ],
+      "note": "曾作留出/确认集，结果影响过候选取舍：登记开发曝光"
+    },
+    {
+      "id": "novice-blossom",
+      "corpus": "novice",
+      "tier": "regression",
+      "legacySplit": "confirmation",
+      "author": "u/Milestone55",
+      "authorGroup": "novice-milestone55",
+      "group": "novice-milestone55",
+      "person": "milestone55-first-portrait",
+      "source": "https://www.reddit.com/r/photocritique/comments/1t31xhl/beginner_at_portraits/",
+      "file": "photos/portrait/novice-blossom.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "v16-camera-16x9",
+        "v16-camera-4x3",
+        "v16-fresh",
+        "v17-fresh",
+        "v18-prop",
+        "v19-feedback",
+        "v20-feedback",
+        "v21-camera-16x9",
+        "v21-camera-4x3",
+        "v21-parallax"
+      ],
+      "note": "曾作留出/确认集，结果影响过候选取舍：登记开发曝光"
+    },
+    {
+      "id": "novice-lighthouse",
+      "corpus": "novice",
+      "tier": "regression",
+      "legacySplit": "confirmation",
+      "author": "u/laurenspaul",
+      "authorGroup": "novice-laurenspaul",
+      "group": "novice-laurenspaul",
+      "person": "laurenspaul-overcast-portrait",
+      "source": "https://www.reddit.com/r/photocritique/comments/1t3ftxi/new_to_photography_please_give_me_some_pointers/",
+      "file": "photos/portrait/novice-lighthouse.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "v16-camera-16x9",
+        "v16-camera-4x3",
+        "v16-fresh",
+        "v17-fresh",
+        "v19-feedback",
+        "v21-camera-16x9",
+        "v21-camera-4x3",
+        "v21-parallax"
+      ],
+      "note": "曾作留出/确认集，结果影响过候选取舍：登记开发曝光"
+    },
+    {
+      "id": "neil-close",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "dev",
+      "author": "Neil van Niekerk",
+      "authorGroup": "neil-van-niekerk",
+      "group": "neil-van-niekerk-eryn",
+      "person": "eryn",
+      "source": "https://neilvn.com/tangents/window-light-portrait/",
+      "file": "photos/portrait/neil-close.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6",
+        "v7"
+      ]
+    },
+    {
+      "id": "neil-room",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "dev",
+      "author": "Neil van Niekerk",
+      "authorGroup": "neil-van-niekerk",
+      "group": "neil-van-niekerk-eryn",
+      "person": "eryn",
+      "source": "https://neilvn.com/tangents/window-light-portrait/",
+      "file": "photos/portrait/neil-room.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6",
+        "v7"
+      ]
+    },
+    {
+      "id": "pyl-field",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "dev",
+      "author": "Pauline / PYL Photography",
+      "authorGroup": "pauline-pyl",
+      "group": "pauline-pyl-talia",
+      "person": "talia",
+      "source": "https://pylphotographyy.com/behind-the-scenes-minimalist-fashion-portraits-in-natural-light-with-talia/",
+      "file": "photos/portrait/pyl-field.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6",
+        "v7"
+      ]
+    },
+    {
+      "id": "pyl-bench",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "dev",
+      "author": "Pauline / PYL Photography",
+      "authorGroup": "pauline-pyl",
+      "group": "pauline-pyl-talia",
+      "person": "talia",
+      "source": "https://pylphotographyy.com/behind-the-scenes-minimalist-fashion-portraits-in-natural-light-with-talia/",
+      "file": "photos/portrait/pyl-bench.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6",
+        "v7"
+      ]
+    },
+    {
+      "id": "firstlight-cafe",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "dev",
+      "author": "Ditte Solgaard / First Light Photography",
+      "authorGroup": "ditte-solgaard-firstlight",
+      "group": "ditte-solgaard-iona",
+      "person": "iona",
+      "source": "https://blog.firstlight.photos/behind-scenes-corporate-portrait-photo-shoot/",
+      "file": "photos/portrait/firstlight-cafe.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6",
+        "v7"
+      ]
+    },
+    {
+      "id": "firstlight-seated",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "dev",
+      "author": "Ditte Solgaard / First Light Photography",
+      "authorGroup": "ditte-solgaard-firstlight",
+      "group": "ditte-solgaard-iona",
+      "person": "iona",
+      "source": "https://blog.firstlight.photos/behind-scenes-corporate-portrait-photo-shoot/",
+      "file": "photos/portrait/firstlight-seated.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6",
+        "v7"
+      ]
+    },
+    {
+      "id": "firstlight-table",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "dev",
+      "author": "Ditte Solgaard / First Light Photography",
+      "authorGroup": "ditte-solgaard-firstlight",
+      "group": "ditte-solgaard-iona",
+      "person": "iona",
+      "source": "https://blog.firstlight.photos/behind-scenes-corporate-portrait-photo-shoot/",
+      "file": "photos/portrait/firstlight-table.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6",
+        "v7"
+      ]
+    },
+    {
+      "id": "neil-street",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "dev",
+      "author": "Neil van Niekerk",
+      "authorGroup": "neil-van-niekerk",
+      "group": "neil-van-niekerk-ekaterina",
+      "person": "ekaterina",
+      "source": "https://neilvn.com/tangents/photo-session-available-light-ekaterina/",
+      "file": "photos/portrait/neil-street.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6",
+        "v7"
+      ]
+    },
+    {
+      "id": "neil-doorway",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "dev",
+      "author": "Neil van Niekerk",
+      "authorGroup": "neil-van-niekerk",
+      "group": "neil-van-niekerk-ekaterina",
+      "person": "ekaterina",
+      "source": "https://neilvn.com/tangents/photo-session-available-light-ekaterina/",
+      "file": "photos/portrait/neil-doorway.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6",
+        "v7"
+      ]
+    },
+    {
+      "id": "trotti-park-01",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "holdout",
+      "author": "Julia Trotti",
+      "authorGroup": "julia-trotti",
+      "group": "julia-trotti-flutter",
+      "person": "zuzanna",
+      "source": "https://www.blog.juliatrotti.com/pictures/flutter",
+      "file": "photos/portrait/trotti-park-01.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10",
+        "v7",
+        "v8",
+        "v9"
+      ]
+    },
+    {
+      "id": "trotti-park-03",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "holdout",
+      "author": "Julia Trotti",
+      "authorGroup": "julia-trotti",
+      "group": "julia-trotti-flutter",
+      "person": "zuzanna",
+      "source": "https://www.blog.juliatrotti.com/pictures/flutter",
+      "file": "photos/portrait/trotti-park-03.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10",
+        "v7",
+        "v8",
+        "v9"
+      ]
+    },
+    {
+      "id": "trotti-park-09",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "holdout",
+      "author": "Julia Trotti",
+      "authorGroup": "julia-trotti",
+      "group": "julia-trotti-flutter",
+      "person": "zuzanna",
+      "source": "https://www.blog.juliatrotti.com/pictures/flutter",
+      "file": "photos/portrait/trotti-park-09.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10",
+        "v7",
+        "v8",
+        "v9"
+      ]
+    },
+    {
+      "id": "mpp-cafe-01",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "holdout",
+      "author": "My Paris Portraits studio",
+      "authorGroup": "my-paris-portraits",
+      "group": "my-paris-portraits-jen",
+      "person": "jen",
+      "source": "https://myparisportraits.com/2021/09/03/2-hour-paris-photoshoot/",
+      "file": "photos/portrait/mpp-cafe-01.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10",
+        "v7",
+        "v8",
+        "v9"
+      ]
+    },
+    {
+      "id": "mpp-cafe-03",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "holdout",
+      "author": "My Paris Portraits studio",
+      "authorGroup": "my-paris-portraits",
+      "group": "my-paris-portraits-jen",
+      "person": "jen",
+      "source": "https://myparisportraits.com/2021/09/03/2-hour-paris-photoshoot/",
+      "file": "photos/portrait/mpp-cafe-03.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10",
+        "v7",
+        "v8",
+        "v9"
+      ]
+    },
+    {
+      "id": "mpp-street-20",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "holdout",
+      "author": "My Paris Portraits studio",
+      "authorGroup": "my-paris-portraits",
+      "group": "my-paris-portraits-jen",
+      "person": "jen",
+      "source": "https://myparisportraits.com/2021/09/03/2-hour-paris-photoshoot/",
+      "file": "photos/portrait/mpp-street-20.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10",
+        "v7",
+        "v8",
+        "v9"
+      ]
+    },
+    {
+      "id": "osborne-window-a",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "holdout",
+      "author": "Matt Osborne",
+      "authorGroup": "matt-osborne",
+      "group": "matt-osborne-window",
+      "person": "osborne-window-session",
+      "source": "https://mrleica.com/window-light-portraits-with-flash/",
+      "file": "photos/portrait/osborne-window-a.png",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10",
+        "v7",
+        "v8",
+        "v9"
+      ]
+    },
+    {
+      "id": "osborne-window-b",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "holdout",
+      "author": "Matt Osborne",
+      "authorGroup": "matt-osborne",
+      "group": "matt-osborne-window",
+      "person": "osborne-window-session",
+      "source": "https://mrleica.com/window-light-portraits-with-flash/",
+      "file": "photos/portrait/osborne-window-b.png",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10",
+        "v7",
+        "v8",
+        "v9"
+      ]
+    },
+    {
+      "id": "osborne-window-a-single",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "holdout",
+      "author": "Matt Osborne",
+      "authorGroup": "matt-osborne",
+      "group": "matt-osborne-window",
+      "person": "osborne-window-session",
+      "source": "https://mrleica.com/window-light-portraits-with-flash/",
+      "file": "photos/portrait/osborne-window-a-single.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10",
+        "v7",
+        "v8",
+        "v9"
+      ]
+    },
+    {
+      "id": "osborne-window-b-single",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "holdout",
+      "author": "Matt Osborne",
+      "authorGroup": "matt-osborne",
+      "group": "matt-osborne-window",
+      "person": "osborne-window-session",
+      "source": "https://mrleica.com/window-light-portraits-with-flash/",
+      "file": "photos/portrait/osborne-window-b-single.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10",
+        "v7",
+        "v8",
+        "v9"
+      ]
+    },
+    {
+      "id": "tucker-woods-final",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "confirmation",
+      "author": "Sean Tucker",
+      "authorGroup": "sean-tucker",
+      "group": "sean-tucker-moonika",
+      "person": "moonika",
+      "source": "https://www.seantucker.photography/blog/2015/2/8/how-i-made-that-shot-moonika",
+      "file": "photos/portrait/tucker-woods-final.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10",
+        "v8",
+        "v9"
+      ]
+    },
+    {
+      "id": "tucker-woods-source",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "confirmation",
+      "author": "Sean Tucker",
+      "authorGroup": "sean-tucker",
+      "group": "sean-tucker-moonika",
+      "person": "moonika",
+      "source": "https://www.seantucker.photography/blog/2015/2/8/how-i-made-that-shot-moonika",
+      "file": "photos/portrait/tucker-woods-source.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10",
+        "v8",
+        "v9"
+      ]
+    },
+    {
+      "id": "pye-parking-11",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "confirmation",
+      "author": "Pye Jirsa / SLR Lounge",
+      "authorGroup": "pye-jirsa",
+      "group": "pye-jirsa-devin-parking",
+      "person": "devin-parking",
+      "source": "https://www.slrlounge.com/five-creative-portraits-in-a-crappy-parking-lot/",
+      "file": "photos/portrait/pye-parking-11.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10",
+        "v9"
+      ]
+    },
+    {
+      "id": "pye-parking-20",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "confirmation",
+      "author": "Pye Jirsa / SLR Lounge",
+      "authorGroup": "pye-jirsa",
+      "group": "pye-jirsa-devin-parking",
+      "person": "devin-parking",
+      "source": "https://www.slrlounge.com/five-creative-portraits-in-a-crappy-parking-lot/",
+      "file": "photos/portrait/pye-parking-20.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10",
+        "v9"
+      ]
+    },
+    {
+      "id": "pye-parking-24",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "confirmation",
+      "author": "Pye Jirsa / SLR Lounge",
+      "authorGroup": "pye-jirsa",
+      "group": "pye-jirsa-devin-parking",
+      "person": "devin-parking",
+      "source": "https://www.slrlounge.com/five-creative-portraits-in-a-crappy-parking-lot/",
+      "file": "photos/portrait/pye-parking-24.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10",
+        "v9"
+      ]
+    },
+    {
+      "id": "pye-jhesus-poses",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "confirmation",
+      "author": "Pye Jirsa / SLR Lounge",
+      "authorGroup": "pye-jirsa",
+      "group": "pye-jirsa-jhesus-studio",
+      "person": "jhesus-studio",
+      "source": "https://www.slrlounge.com/studio-portrait-lighting-fundamentals-posing-tips/",
+      "file": "photos/portrait/pye-jhesus-poses.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10"
+      ]
+    },
+    {
+      "id": "pye-jhesus-angles",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "confirmation",
+      "author": "Pye Jirsa / SLR Lounge",
+      "authorGroup": "pye-jirsa",
+      "group": "pye-jirsa-jhesus-studio",
+      "person": "jhesus-studio",
+      "source": "https://www.slrlounge.com/studio-portrait-lighting-fundamentals-posing-tips/",
+      "file": "photos/portrait/pye-jhesus-angles.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10"
+      ]
+    },
+    {
+      "id": "pye-jhesus-straight",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "confirmation",
+      "author": "Pye Jirsa / SLR Lounge",
+      "authorGroup": "pye-jirsa",
+      "group": "pye-jirsa-jhesus-studio",
+      "person": "jhesus-studio",
+      "source": "https://www.slrlounge.com/studio-portrait-lighting-fundamentals-posing-tips/",
+      "file": "photos/portrait/pye-jhesus-straight.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10"
+      ]
+    },
+    {
+      "id": "pye-jhesus-lean",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "confirmation",
+      "author": "Pye Jirsa / SLR Lounge",
+      "authorGroup": "pye-jirsa",
+      "group": "pye-jirsa-jhesus-studio",
+      "person": "jhesus-studio",
+      "source": "https://www.slrlounge.com/studio-portrait-lighting-fundamentals-posing-tips/",
+      "file": "photos/portrait/pye-jhesus-lean.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10"
+      ]
+    },
+    {
+      "id": "pye-jhesus-smile",
+      "corpus": "pro",
+      "tier": "reference",
+      "legacySplit": "confirmation",
+      "author": "Pye Jirsa / SLR Lounge",
+      "authorGroup": "pye-jirsa",
+      "group": "pye-jirsa-jhesus-studio",
+      "person": "jhesus-studio",
+      "source": "https://www.slrlounge.com/studio-portrait-lighting-fundamentals-posing-tips/",
+      "file": "photos/portrait/pye-jhesus-smile.jpg",
+      "exposed": true,
+      "exposedBy": [
+        "baseline",
+        "v10"
+      ]
+    }
+  ]
+}

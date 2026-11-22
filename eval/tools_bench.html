@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>工具测试台</title>
+<style>
+  body { font: 14px/1.6 system-ui, sans-serif; margin: 24px; background: #faf8f4; color: #222; }
+  h2 { margin-top: 28px; }
+  table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  td, th { padding: 2px 10px; border-bottom: 1px solid #e5e0d8; text-align: left; }
+  .bad { color: #c0392b; } .skip { color: #999; }
+  pre { background: #fff; padding: 12px; border: 1px solid #e5e0d8; }
+</style>
+</head>
+<body>
+<h1>工具测试台（不花 token）</h1>
+<p>直接测手机版 <code>mobile/src/vision.js</code>：把 16 张原图在浏览器里"故意拍坏"（转歪 / 调暗调亮 / 模糊），看工具能不能测准。<br>
+运行：在项目根目录 <code>python -m http.server 5174 --bind 127.0.0.1</code>，打开 <code>http://localhost:5174/eval/tools_bench.html</code></p>
+<div id="out">运行中…</div>
+<script type="module" src="tools_bench.js"></script>
+</body>
+</html>

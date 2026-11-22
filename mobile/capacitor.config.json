@@ -1,0 +1,13 @@
+{
+  "appId": "com.photographer.viewfinder",
+  "appName": "Phota",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": false
+  },
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    }
+  }
+}

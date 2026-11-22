@@ -1,0 +1,21 @@
+Phota 使用的第三方组件 / Third-party components used by Phota
+
+1. MediaPipe Tasks Vision 1.1.1（@mediapipe/tasks-vision）
+   用途：在手机本地识别取景画面里的人和动物，判断场景
+   来源：https://www.npmjs.com/package/@mediapipe/tasks-vision （Google）
+   许可：Apache License 2.0，全文见 Apache-2.0.txt
+   打包的文件：mediapipe/vision_wasm_internal.js、mediapipe/vision_wasm_internal.wasm，以及打包进 app.js 的 JavaScript 部分
+
+2. EfficientDet-Lite0 物体检测模型（int8，efficientdet_lite0.tflite）
+   用途：同上
+   来源：https://storage.googleapis.com/mediapipe-models/object_detector/efficientdet_lite0/int8/1/efficientdet_lite0.tflite
+         （MediaPipe 官方下载地址，见 https://developers.google.com/edge/mediapipe/solutions/vision/object_detector）
+   许可：官方页面没有单独写明这个模型的许可证，也没有链接模型卡片。MediaPipe 项目本身是 Apache License 2.0；
+         模型用 COCO 数据集训练。正式对外发布前需要再确认模型的许可。
+   SHA-256：0720bf247bd76e6594ea28fa9c6f7c5242be774818997dbbeffc4da460c723bb
+
+3. IBM Plex Sans / IBM Plex Mono 字体
+   许可：SIL Open Font License 1.1，全文见 fonts/OFL-IBM-Plex.txt
+
+没有修改以上组件。
+These components are used unmodified.

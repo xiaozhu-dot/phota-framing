@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-28",
+  "stage": 0,
+  "status": "passed-by-user-decision",
+  "instruction": "不人工评分，直接pass",
+  "scope": "Skip the pending Stage 0 static human ratings and release the stage gate by explicit user decision.",
+  "humanAssessment": "skipped-by-user",
+  "unmeasuredMetrics": [
+    "confirmed hard-error rate",
+    "unnecessary adjustment rate",
+    "missed adjustment rate",
+    "professional suitability scores",
+    "creativity scores",
+    "scene-grounding rate"
+  ],
+  "qualityTargetsMeasuredAsPassed": false,
+  "scoresFabricated": false,
+  "modelPromoted": false,
+  "formalPrompt": "portrait-v16",
+  "priorAssessment": "eval/stage0/assessment-20261028.json",
+  "frozenRunRecordsChanged": false,
+  "futureHumanReviewsWaived": false,
+  "laterStagesStartedByThisDecision": false
+}

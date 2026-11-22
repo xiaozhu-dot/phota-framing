@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-28",
+  "status": "awaiting-human-labels",
+  "appChanged": false,
+  "modelTraining": false,
+  "apkPackaged": false,
+  "files": {
+    "docs/evaluations/phota-scoring-v2.md": "c3ca7592f81459f6f7546777ac74d2899ffd35ec628ea0c2fd6edbbf0a9b83cd",
+    "eval/stage0/baseline.mjs": "01806bd902241c941858ed772e0b5f888aa77a5fc18850df1035e5ac15808243",
+    "eval/stage0/label_page.mjs": "1ba3e3af15fd9be306ce9f10c8d802fc03ded2aaf5b97038c97ce908a19695e7",
+    "eval/stage0/label_browser_test.mjs": "f5bfb59b16130b1989cddef19df180f85fa1564fd0c9a6723270283e38bd1699",
+    "eval/stage0/registry.mjs": "9cd76b2c9f4d8b2020bbc14adb78d16966aab30aef15bf0105418afb87ee2393",
+    "eval/stage0/consistency.mjs": "159cc1ed0590297c7c204989ec3cd22418996eb9477a3077d9fd5e98c34652e4",
+    "eval/stage0/run_baseline.mjs": "a6ee7b8adb3101715ee1a5b6dcb97cafe3e73810a18dfd1156226f701ae27eb5",
+    "eval/stage0/run_remainder.mjs": "e7d3c88655a0999f10f595f265d612dc8d21cbab16d575ab99c422d92ab08fc4",
+    "eval/stage0/run_contract.mjs": "192b7441e2de2d63b532799e6efa99fdf67e0582a0022e60a9ef522ef74af7bb",
+    "eval/stage0/registry.json": "e541215640bd62da6d8d5669d49485e2ffd94ba29f4d8459f8ac0fc20b4653f1",
+    "eval/stage0/baseline-v16-frozen.json": "540e5bd5092d0d0f0e00b0b54129a9998edfa9e0bd049e3a41c5c9bbe580242c",
+    "eval/stage0/baseline-v16-continuation-20261028.json": "2fe555ae17e853a0ce3d2ded449088c08ffd77d0056bbf4f20797c65c989fe12",
+    "eval/stage0/v16-stage0-20261028-baseline-summary.json": "6737e9176b0b23d7d2de2d4f03a8d022d996f49ecb515e67a0e37c4da30f03a8",
+    "eval/results/stage0-v16-stage0-20261027-r1.json": "4e23bace742cff62b3b10ac6a2274178c5994552ddbb5d7d084d0c8056054174",
+    "eval/results/stage0-v16-stage0-20261028-r2.json": "718174d2b6dff541b68187ba9eced34c7b096a471674b9b3f9c0ecabfb7c6a20",
+    "eval/results/stage0-verification.json": "9bcf20b227b6abb3b63f7e767d926fc52c6b05d3105c3c901acd295e2693392f",
+    "eval/results/stage0-v16-review.html": "00c155cdf05b89cb5c530130092856ef1d5c437102592190da6bc89281c3380f"
+  },
+  "pages": [
+    {
+      "file": "eval/results/stage0-label-v16-review-20261028-16x9-batch1.html",
+      "sha256": "75e1208e27a2e485e7fa4f085e4235536c8b1c8db95e46e035dccba97a0186a3",
+      "pageHash": "0fd066f8cbfeee02a35e6e89f1ce0ec81c67ddf3260604e8441c3b6a3310c442",
+      "inputs": 3,
+      "records": 6
+    },
+    {
+      "file": "eval/results/stage0-label-v16-review-20261028-16x9-batch2.html",
+      "sha256": "d05121482e6658f075e9af2ddfc3f45c730668dc6704d01dd439ce27d8a39e33",
+      "pageHash": "3c85fa74aabb4247b4f0c07b9bd251b32dae4d7c2bf11695a19c84a5f9ac3e58",
+      "inputs": 3,
+      "records": 6
+    },
+    {
+      "file": "eval/results/stage0-label-v16-review-20261028-16x9-batch3.html",
+      "sha256": "6fbc1ba9163b442d6e2cad1c34499b996c3d03fdbd1f3839a7ae19f9e257269e",
+      "pageHash": "0cbe6dd149841e9fb3de55921969fc4763fa0939ac9f8ab729db1cf63b8aa3bd",
+      "inputs": 3,
+      "records": 6
+    },
+    {
+      "file": "eval/results/stage0-label-v16-review-20261028-4x3-batch1.html",
+      "sha256": "aac691646dbe7b03e23bf35005c884d433135bedac99f9b9c36102d3e241ab44",
+      "pageHash": "9cd308a7fecd45b563e94648d02b895a89b3612c7f75c04915423012b3df8156",
+      "inputs": 3,
+      "records": 6
+    },
+    {
+      "file": "eval/results/stage0-label-v16-review-20261028-4x3-batch2.html",
+      "sha256": "5b64d5260526afe3577988e2be1d6a300b06f7b2631cbbe9c2566d50b5503b99",
+      "pageHash": "10b13cf3231d8a08374c1b9c45de2f130b64ee1533142f86b8ade71e0afe12c4",
+      "inputs": 3,
+      "records": 6
+    },
+    {
+      "file": "eval/results/stage0-label-v16-review-20261028-4x3-batch3.html",
+      "sha256": "5daa199695d4d79bdc0088a253ed1a2240c4bd17b674eb817f35d88aa82dd930",
+      "pageHash": "5c8b11a4e0885b862fcdc54cf670c478e422625c8ae5862d39e01ac3ff8b5d20",
+      "inputs": 3,
+      "records": 6
+    },
+    {
+      "file": "eval/results/stage0-label-v16-review-20261028-original-batch1.html",
+      "sha256": "8d5b21ab6f9c9b754430765d1332c173429c46603ece5f282e3b9062b4bd7cbe",
+      "pageHash": "593805471b5eb1cf393be50cc2bb15d4bb1a0320eac37d6f077a41a6e1c3752f",
+      "inputs": 3,
+      "records": 6
+    },
+    {
+      "file": "eval/results/stage0-label-v16-review-20261028-original-batch2.html",
+      "sha256": "31381b672cd3f6d257aacfb822b3f23834c97f8b591c0ac6386ca265d21a9ab4",
+      "pageHash": "b539124d662a8c6f90f0bcad4a46fd56e936dfaad7834b695d0f27e67160b054",
+      "inputs": 3,
+      "records": 6
+    },
+    {
+      "file": "eval/results/stage0-label-v16-review-20261028-original-batch3.html",
+      "sha256": "1ed6fcb60ccbef325ce71f03d20f5890233305ca7f886571f9ec11bb1170c6f0",
+      "pageHash": "6d4fdf291a8319ab5e538c29763f154a5c2f4ae60ec61e376ec999cc171cb1cc",
+      "inputs": 3,
+      "records": 6
+    }
+  ]
+}

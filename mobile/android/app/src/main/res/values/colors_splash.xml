@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 启动画面底色 = 设计系统的 surface-0，和 App 开场同色，切换时不闪 -->
+    <color name="splash_background">#121110</color>
+</resources>

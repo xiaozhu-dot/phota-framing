@@ -1,0 +1,234 @@
+[
+  {
+    "file": "photos/animal_1.jpg",
+    "base": "animal_1",
+    "defect": "none"
+  },
+  {
+    "file": "photos/animal_2.jpg",
+    "base": "animal_2",
+    "defect": "none"
+  },
+  {
+    "file": "photos/architecture_1.jpg",
+    "base": "architecture_1",
+    "defect": "none"
+  },
+  {
+    "file": "photos/architecture_2.jpg",
+    "base": "architecture_2",
+    "defect": "none"
+  },
+  {
+    "file": "photos/food_1.jpg",
+    "base": "food_1",
+    "defect": "none"
+  },
+  {
+    "file": "photos/food_2.jpg",
+    "base": "food_2",
+    "defect": "none"
+  },
+  {
+    "file": "photos/interior_1.jpg",
+    "base": "interior_1",
+    "defect": "none"
+  },
+  {
+    "file": "photos/interior_2.jpg",
+    "base": "interior_2",
+    "defect": "none"
+  },
+  {
+    "file": "photos/landscape_1.jpg",
+    "base": "landscape_1",
+    "defect": "none"
+  },
+  {
+    "file": "photos/landscape_2.jpg",
+    "base": "landscape_2",
+    "defect": "none"
+  },
+  {
+    "file": "photos/portrait_1.jpg",
+    "base": "portrait_1",
+    "defect": "none"
+  },
+  {
+    "file": "photos/portrait_2.jpg",
+    "base": "portrait_2",
+    "defect": "none"
+  },
+  {
+    "file": "photos/seascape_1.jpg",
+    "base": "seascape_1",
+    "defect": "none"
+  },
+  {
+    "file": "photos/seascape_2.jpg",
+    "base": "seascape_2",
+    "defect": "none"
+  },
+  {
+    "file": "photos/street_1.jpg",
+    "base": "street_1",
+    "defect": "none"
+  },
+  {
+    "file": "photos/street_2.jpg",
+    "base": "street_2",
+    "defect": "none"
+  },
+  {
+    "file": "photos/variants/tilt_seascape_1.jpg",
+    "base": "seascape_1",
+    "defect": "tilt",
+    "tilt": 4,
+    "keywords": [
+      "歪",
+      "倾斜",
+      "不平",
+      "水平"
+    ]
+  },
+  {
+    "file": "photos/variants/tilt_seascape_2.jpg",
+    "base": "seascape_2",
+    "defect": "tilt",
+    "tilt": -3,
+    "keywords": [
+      "歪",
+      "倾斜",
+      "不平",
+      "水平"
+    ]
+  },
+  {
+    "file": "photos/variants/tilt_landscape_2.jpg",
+    "base": "landscape_2",
+    "defect": "tilt",
+    "tilt": 5,
+    "keywords": [
+      "歪",
+      "倾斜",
+      "不平",
+      "水平"
+    ]
+  },
+  {
+    "file": "photos/variants/tilt_interior_1.jpg",
+    "base": "interior_1",
+    "defect": "tilt",
+    "tilt": -4,
+    "keywords": [
+      "歪",
+      "倾斜",
+      "不平",
+      "水平"
+    ]
+  },
+  {
+    "file": "photos/variants/dark_landscape_1.jpg",
+    "base": "landscape_1",
+    "defect": "dark",
+    "keywords": [
+      "暗",
+      "欠曝",
+      "曝光不足"
+    ]
+  },
+  {
+    "file": "photos/variants/dark_architecture_1.jpg",
+    "base": "architecture_1",
+    "defect": "dark",
+    "keywords": [
+      "暗",
+      "欠曝",
+      "曝光不足"
+    ]
+  },
+  {
+    "file": "photos/variants/bright_animal_2.jpg",
+    "base": "animal_2",
+    "defect": "bright",
+    "keywords": [
+      "过曝",
+      "太亮",
+      "偏亮",
+      "曝光过度",
+      "死白"
+    ]
+  },
+  {
+    "file": "photos/variants/bright_portrait_2.jpg",
+    "base": "portrait_2",
+    "defect": "bright",
+    "keywords": [
+      "过曝",
+      "太亮",
+      "偏亮",
+      "曝光过度",
+      "死白"
+    ]
+  },
+  {
+    "file": "photos/variants/cut_animal_1.jpg",
+    "base": "animal_1",
+    "defect": "cut",
+    "what": "小鸟被挤到画面左边缘，脚和下半身被切掉",
+    "keywords": [
+      "切",
+      "裁",
+      "边缘",
+      "截断",
+      "不完整",
+      "挤",
+      "太满"
+    ]
+  },
+  {
+    "file": "photos/variants/cut_portrait_1.jpg",
+    "base": "portrait_1",
+    "defect": "cut",
+    "what": "帽子和头顶被切掉",
+    "keywords": [
+      "切",
+      "裁",
+      "边缘",
+      "截断",
+      "不完整",
+      "挤",
+      "太满"
+    ]
+  },
+  {
+    "file": "photos/variants/cut_street_2.jpg",
+    "base": "street_2",
+    "defect": "cut",
+    "what": "人物被挤到画面最左边，右边留了一大片背景",
+    "keywords": [
+      "切",
+      "裁",
+      "边缘",
+      "截断",
+      "不完整",
+      "挤",
+      "太满"
+    ]
+  },
+  {
+    "file": "photos/variants/cut_food_1.jpg",
+    "base": "food_1",
+    "defect": "cut",
+    "what": "主菜被切掉一大块",
+    "keywords": [
+      "切",
+      "裁",
+      "边缘",
+      "截断",
+      "不完整",
+      "挤",
+      "太满"
+    ]
+  }
+]

@@ -1,0 +1,115 @@
+{
+  "name": "history-v16",
+  "inputs": [
+    "portrait-novice-v16-fresh-candidate-confirmation.json",
+    "portrait-novice-v16-camera-4x3-candidate-confirmation.json",
+    "portrait-novice-v16-camera-16x9-candidate-confirmation.json",
+    "portrait-novice-v16-feedback-candidate-holdout.json"
+  ],
+  "promptHashes": [
+    "94df03740677"
+  ],
+  "logicalRequests": 15,
+  "byIntent": {
+    "first": 12,
+    "alternate": 3
+  },
+  "efficiency": {
+    "finalAvailability": {
+      "num": 12,
+      "den": 15,
+      "value": 0.8
+    },
+    "waitMedianMs": 8633,
+    "waitP90Ms": "∞",
+    "httpCalls": 30,
+    "estimatedCnyTotal": 0.211118,
+    "estimatedCnyPerValidGuidance": 0.017593,
+    "costComplete": false,
+    "note": "运行器保守估算，不是账单"
+  },
+  "decisions": {
+    "ready": 6,
+    "adjust": 6,
+    "other": 2
+  },
+  "consistency": {
+    "checker": "consistency-v1",
+    "finalWithConflict": {
+      "num": 0,
+      "den": 14,
+      "value": 0
+    },
+    "finalWithReviewOnly": {
+      "num": 2,
+      "den": 14,
+      "value": 0.143
+    },
+    "rawOnlyAlarms": 0,
+    "note": "报警只是疑点，须人工对图确认后才计 H2/H3 硬错误",
+    "alarms": [
+      {
+        "case": "novice-lighthouse",
+        "intent": "first",
+        "file": "portrait-novice-v16-camera-4x3-candidate-confirmation.json",
+        "code": "H3?",
+        "verdict": "review",
+        "where": "final.plan.why",
+        "phrase": "向右转",
+        "why": "最终动作方向是 left"
+      },
+      {
+        "case": "novice-wife",
+        "intent": "first",
+        "file": "portrait-novice-v16-feedback-candidate-holdout.json",
+        "code": "H2?",
+        "where": "final.plan.why",
+        "kind": "edge",
+        "side": "左",
+        "phrase": "贴近边缘",
+        "verdict": "review",
+        "why": "无主体框，贴边须对图核验"
+      }
+    ]
+  },
+  "needsHuman": [
+    "硬错误率（H1–H6 确认）",
+    "不必要调整率",
+    "漏调率",
+    "无证据调整率",
+    "不适用建议率",
+    "建议适配四维分",
+    "创意分",
+    "现场关联率"
+  ],
+  "noData": [
+    "单步有效率",
+    "执行覆盖率",
+    "成功拍法步数",
+    "严格出片成功率",
+    "实拍成片四维分",
+    "真实成片盲评"
+  ],
+  "failures": [
+    {
+      "case": "novice-night",
+      "intent": "first",
+      "file": "portrait-novice-v16-fresh-candidate-confirmation.json",
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "case": "novice-duality",
+      "intent": "alternate",
+      "file": "portrait-novice-v16-fresh-candidate-confirmation.json",
+      "status": "pause",
+      "hint": "这次拍法和上一张太接近，点「换个拍法」重新想一张"
+    },
+    {
+      "case": "novice-lighthouse",
+      "intent": "alternate",
+      "file": "portrait-novice-v16-fresh-candidate-confirmation.json",
+      "status": "pause",
+      "hint": "这次拍法和上一张太接近，点「换个拍法」重新想一张"
+    }
+  ]
+}

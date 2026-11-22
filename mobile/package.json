@@ -1,0 +1,27 @@
+{
+  "name": "viewfinder-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "取景 · AI 构图教练（安卓 App）",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "sync": "npm run build && npx cap sync android",
+    "apk": "npm run sync && cd android && .\\gradlew.bat assembleDebug",
+    "build:collect": "node scripts/build.mjs --collect",
+    "apk:collect": "node scripts/build.mjs --collect && npx cap sync android && cd android && .\\gradlew.bat assembleDebug -Pcollect"
+  },
+  "dependencies": {
+    "@capacitor-community/media": "^9.1.0",
+    "@capacitor-community/text-to-speech": "^8.0.2",
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/filesystem": "^8.1.5",
+    "@capacitor/share": "^8.0.3",
+    "@mediapipe/tasks-vision": "1.1.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.3",
+    "esbuild": "^0.28.2"
+  }
+}

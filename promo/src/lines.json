@@ -1,0 +1,15 @@
+[
+  { "id": "c1", "who": "crab", "scene": "intro", "text": "嗨！我是 Crabo。" },
+  { "id": "p1", "who": "pig", "scene": "intro", "text": "我是 Piggo。我们是 Phota 里的拍照伙伴。" },
+  { "id": "c2", "who": "crab", "scene": "coach", "text": "举起手机取景，我们就在旁边帮你看。" },
+  { "id": "p2", "who": "pig", "scene": "coach", "text": "主体太靠右？我会告诉你：手机往右移一点。" },
+  { "id": "c3", "who": "crab", "scene": "coach", "text": "构图到位了，就喊你：就是现在，按快门！" },
+  { "id": "p3", "who": "pig", "scene": "analyze", "text": "拍完了，交给我们做深度分析。" },
+  { "id": "c4", "who": "crab", "scene": "analyze", "text": "测光、放大细看、试着裁一裁，一步一步来。" },
+  { "id": "p4", "who": "pig", "scene": "analyze", "text": "最后还会自己检查一遍，结论和测量对不上，就重新想。" },
+  { "id": "c5", "who": "crab", "scene": "pro", "text": "想玩得更专业？PRO 模式能调 ISO 和快门。", "say": "想玩得更专业？专业模式能调感光度和快门。" },
+  { "id": "p5", "who": "pig", "scene": "album", "text": "一组照片，我们帮你编成摄影集。" },
+  { "id": "c6", "who": "crab", "scene": "album", "text": "配上文字、动画和即兴的音乐，每一本都独一无二。" },
+  { "id": "c7", "who": "crab", "scene": "outro", "text": "和我们一起，" },
+  { "id": "p6", "who": "pig", "scene": "outro", "text": "拍得更好看！" }
+]

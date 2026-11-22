@@ -1,0 +1,142 @@
+{
+  "name": "v16 冻结基线（第 0 阶段）",
+  "status": "superseded-draft",
+  "supersededBy": "baseline-v16-frozen.json and baseline-v16-continuation-20261028.json; preserved as preparation history, not the executed schedule",
+  "frozenAt": null,
+  "identity": {
+    "prompt": "portrait-v16",
+    "promptHash": "94df0374067713e79cec5ce3f6b33e4a3f83744b097542e6847724507eb13d70",
+    "implementationHash": "5d6d6eea8c83c8538709a735337ff6dc7b512f05eea2b66b9d77fadc71ea2a32",
+    "model": "deepseek-flash",
+    "rulesSha256": "c3ca7592f81459f6f7546777ac74d2899ffd35ec628ea0c2fd6edbbf0a9b83cd",
+    "checkerSha256": "113491bc4988428f8a004011b6fecf3f2f1ce5ce6d0e7418a14c37ee5181fd9b",
+    "frameManifestSha256": "7e35af9b42cc2f9f8ee331963d0ce0a3d374e47607d55f34ad154d3342f6a5b2",
+    "registrySha256": "523b9e2b66b8e2dc5ffea24d9329ef33f0ccd16785fd1c98b8bcab47e44d1fe6"
+  },
+  "cases": [
+    "novice-blue",
+    "novice-first-shoot",
+    "novice-studio",
+    "novice-wife",
+    "novice-fuji",
+    "novice-night",
+    "novice-duality",
+    "novice-blossom",
+    "novice-lighthouse"
+  ],
+  "design": "9 位新手作者 × 3 种输入（原图 / App 4:3 取景帧 / App 16:9 取景帧）× 2 种请求（首次指导 / 换个拍法）",
+  "plan": {
+    "logicalRequests": 54,
+    "expectedHttpCalls": "约 110–130（观察 + 导演，偶有一次修复）",
+    "estimatedCny": "约 ¥0.8–1.0（按历史每条可用指导约 ¥0.018）",
+    "budgetStopCny": 1.5
+  },
+  "stopRules": [
+    "每次 HTTP 最长 90 秒；不额外重试，失败照实记录，等待按 ∞ 计",
+    "累计估算费用超过 ¥1.5（预估的 1.5 倍）立即停止并报告",
+    "任一哈希与冻结时不同：不运行，须重新登记",
+    "跑完不挑最好的一次，不重跑失败项来改善成绩"
+  ],
+  "notIncluded": "实拍效果、步数、成片分在第 1 阶段之前写\"暂无数据\"",
+  "runs": [
+    {
+      "ratio": "original",
+      "split": "dev",
+      "tag": "v16-stage0-orig",
+      "cases": [
+        "novice-blue",
+        "novice-first-shoot",
+        "novice-studio"
+      ],
+      "result": "eval/results/portrait-novice-v16-stage0-orig-candidate-dev.json"
+    },
+    {
+      "ratio": "original",
+      "split": "holdout",
+      "tag": "v16-stage0-orig",
+      "cases": [
+        "novice-wife",
+        "novice-fuji"
+      ],
+      "result": "eval/results/portrait-novice-v16-stage0-orig-candidate-holdout.json"
+    },
+    {
+      "ratio": "original",
+      "split": "confirmation",
+      "tag": "v16-stage0-orig",
+      "cases": [
+        "novice-night",
+        "novice-duality",
+        "novice-blossom",
+        "novice-lighthouse"
+      ],
+      "result": "eval/results/portrait-novice-v16-stage0-orig-candidate-confirmation.json"
+    },
+    {
+      "ratio": "4:3",
+      "split": "dev",
+      "tag": "v16-stage0-4x3",
+      "cases": [
+        "novice-blue",
+        "novice-first-shoot",
+        "novice-studio"
+      ],
+      "result": "eval/results/portrait-novice-v16-stage0-4x3-candidate-dev.json"
+    },
+    {
+      "ratio": "4:3",
+      "split": "holdout",
+      "tag": "v16-stage0-4x3",
+      "cases": [
+        "novice-wife",
+        "novice-fuji"
+      ],
+      "result": "eval/results/portrait-novice-v16-stage0-4x3-candidate-holdout.json"
+    },
+    {
+      "ratio": "4:3",
+      "split": "confirmation",
+      "tag": "v16-stage0-4x3",
+      "cases": [
+        "novice-night",
+        "novice-duality",
+        "novice-blossom",
+        "novice-lighthouse"
+      ],
+      "result": "eval/results/portrait-novice-v16-stage0-4x3-candidate-confirmation.json"
+    },
+    {
+      "ratio": "16:9",
+      "split": "dev",
+      "tag": "v16-stage0-16x9",
+      "cases": [
+        "novice-blue",
+        "novice-first-shoot",
+        "novice-studio"
+      ],
+      "result": "eval/results/portrait-novice-v16-stage0-16x9-candidate-dev.json"
+    },
+    {
+      "ratio": "16:9",
+      "split": "holdout",
+      "tag": "v16-stage0-16x9",
+      "cases": [
+        "novice-wife",
+        "novice-fuji"
+      ],
+      "result": "eval/results/portrait-novice-v16-stage0-16x9-candidate-holdout.json"
+    },
+    {
+      "ratio": "16:9",
+      "split": "confirmation",
+      "tag": "v16-stage0-16x9",
+      "cases": [
+        "novice-night",
+        "novice-duality",
+        "novice-blossom",
+        "novice-lighthouse"
+      ],
+      "result": "eval/results/portrait-novice-v16-stage0-16x9-candidate-confirmation.json"
+    }
+  ]
+}
