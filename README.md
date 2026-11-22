@@ -15,8 +15,6 @@ Phota 是一个 Android 摄影教练。拍人像时，点一下取景框里的 C
 
 ## 开始使用
 
-进入 mobile，执行 npm ci，再执行 npm run build。要同步到 Android 工程，执行 npm run sync，然后用 Android Studio 打开 mobile/android。
-
-在项目根目录运行 node eval/coach_logic_test.mjs，可以离线验证取景方向的换算。
+前往 [GitHub Releases](https://github.com/xiaozhu-dot/phota-framing/releases)，在 **Assets** 中下载 APK，然后在安卓手机上安装。
 
 项目原创源码采用 MIT 许可证。随项目分发的字体和模型遵循各自许可证，详见 mobile/www/fonts 和 mobile/www/licenses。
