@@ -2,6 +2,10 @@
 
 Phota 是一个 Android 摄影教练。拍人像时，点一下取景框里的 Crabo 或 Piggo，它会结合当前画面给摄影师或模特一句现场指导。
 
+## 宣传视频
+
+[观看或下载 Phota 宣传片（MP4，约 20 MB）](promo/phota-promo-v2.mp4)
+
 ## 项目目录
 
 - mobile 包含拍摄界面、语音、构图和人像指导，以及 Android 工程。
